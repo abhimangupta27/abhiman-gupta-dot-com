@@ -11,11 +11,10 @@
       --bg: #ffffff;
       --surface: #f7f7f5;
       --border: #e8e8e4;
-      --accent: #1a1a1a;
-      --accent2: #555;
       --text: #1a1a1a;
       --muted: #888;
       --font: 'Inter', system-ui, -apple-system, sans-serif;
+      --serif: 'Georgia', 'Times New Roman', serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -46,147 +45,66 @@
     .nav-links a { color: var(--muted); font-size: 0.88rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
 
-    /* SCROLL TOGGLES */
-    .scroll-nav {
-      display: flex; gap: 0.5rem; flex-wrap: wrap;
-      margin-top: 3rem;
-    }
-    .scroll-toggle {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      font-size: 0.78rem; font-weight: 500;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      background: var(--surface);
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    .scroll-toggle:hover { border-color: var(--text); color: var(--text); text-decoration: none; }
-    .scroll-toggle.active {
-      background: var(--text); color: #ffffff;
-      border-color: var(--text);
-    }
-
-    /* SECTIONS */
-    section { max-width: 760px; margin: 0 auto; padding: 6rem 2rem; }
-    section + section { padding-top: 2rem; }
+    /* LAYOUT */
+    .container { max-width: 640px; margin: 0 auto; padding: 0 2rem; }
 
     /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding-top: 8rem;
+    .hero {
+      padding: 10rem 0 4rem;
     }
-    .hero-label {
-      font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.2rem;
-    }
-    .hero-name {
-      font-size: clamp(2.4rem, 6vw, 3.6rem);
-      font-weight: 700; line-height: 1.1;
-      color: var(--text);
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: normal; line-height: 1.2;
       margin-bottom: 1.2rem;
     }
-    .hero-bio {
-      font-size: 1.05rem; color: var(--muted); max-width: 560px;
-      margin-bottom: 2rem; line-height: 1.8;
+    .hero p {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 1rem;
     }
-    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-block;
-      padding: 0.55rem 1.3rem;
-      border-radius: 6px;
-      font-size: 0.85rem; font-weight: 500;
-      transition: all 0.2s;
+    .hero-links {
+      display: flex; gap: 1.5rem; margin-top: 1.8rem;
+      font-size: 0.88rem;
     }
-    .btn-primary {
-      background: var(--text); color: #ffffff;
-    }
-    .btn-primary:hover { background: #333; text-decoration: none; }
-    .btn-ghost {
-      border: 1px solid var(--border); color: var(--muted);
-    }
-    .btn-ghost:hover { border-color: var(--text); color: var(--text); text-decoration: none; }
+    .hero-links a { color: var(--muted); transition: color 0.2s; }
+    .hero-links a:hover { color: var(--text); }
 
-    /* SECTION HEADER */
-    .section-title {
-      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 2rem;
+    /* DIVIDER */
+    hr {
+      border: none; border-top: 1px solid var(--border);
+      margin: 3rem 0;
     }
 
-    /* ABOUT */
-    #about p { color: var(--muted); margin-bottom: 1rem; }
-    #about p:last-child { margin-bottom: 0; }
-
-    /* EDUCATION & EXPERIENCE */
-    .timeline { display: flex; flex-direction: column; gap: 2rem; }
-    .timeline-item {
-      padding: 1.4rem 1.6rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-    .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.25rem; }
-    .timeline-title { font-weight: 600; font-size: 0.95rem; }
-    .timeline-date { font-size: 0.78rem; color: var(--muted); white-space: nowrap; margin-top: 0.15rem; }
-    .timeline-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.6rem; }
-    .timeline-body { font-size: 0.85rem; color: var(--muted); }
-    .timeline-body li { margin-bottom: 0.3rem; margin-left: 1.1rem; }
-    .badge {
-      display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.55rem;
-      border-radius: 999px; border: 1px solid var(--border);
-      color: var(--muted); margin-top: 0.7rem; margin-right: 0.3rem;
+    /* SECTION */
+    .section { padding-bottom: 3rem; }
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.5rem;
     }
 
     /* PUBLICATIONS */
-    .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
-    .pub-item {
-      padding: 1.2rem 1.4rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.85rem;
-    }
-    .pub-title { font-weight: 500; margin-bottom: 0.3rem; color: var(--text); }
-    .pub-meta { color: var(--muted); font-size: 0.8rem; }
-    .pub-venue { color: var(--muted); }
-
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
-    .skill-group {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1.2rem;
-    }
-    .skill-group-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.7rem; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skill-tag { font-size: 0.78rem; color: var(--muted); background: #f0f0ec; border: 1px solid var(--border); border-radius: 4px; padding: 0.2rem 0.55rem; }
+    .pub { margin-bottom: 1.4rem; }
+    .pub:last-child { margin-bottom: 0; }
+    .pub-title { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .pub-meta { font-size: 0.8rem; color: var(--muted); }
 
     /* CONTACT */
-    #contact { padding-bottom: 8rem; }
-    .contact-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .contact-link {
-      display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.8rem 1.2rem;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; font-size: 0.85rem; color: var(--muted);
-      transition: all 0.2s;
+    .contact-links {
+      display: flex; gap: 2rem; font-size: 0.88rem;
     }
-    .contact-link:hover { border-color: var(--text); color: var(--text); text-decoration: none; }
-    .contact-link svg { flex-shrink: 0; }
+    .contact-links a { color: var(--muted); transition: color 0.2s; }
+    .contact-links a:hover { color: var(--text); }
 
     /* FOOTER */
     footer {
-      text-align: center; padding: 2rem;
-      font-size: 0.78rem; color: var(--muted);
-      border-top: 1px solid var(--border);
+      text-align: center; padding: 3rem 2rem;
+      font-size: 0.75rem; color: var(--muted);
     }
 
     @media (max-width: 600px) {
       nav { padding: 1rem 1.2rem; }
-      .nav-links { gap: 1.2rem; }
-      section { padding: 5rem 1.2rem; }
+      .container { padding: 0 1.2rem; }
+      .hero { padding-top: 7rem; }
     }
   </style>
 </head>
@@ -199,257 +117,36 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <p class="hero-label">PhD Researcher · Optical Sciences</p>
-  <h1 class="hero-name">Abhiman Gupta</h1>
-  <p class="hero-bio">
-    PhD student in Optical Sciences at the University of Arizona, working at the intersection of biomedical imaging, optical engineering, and photoacoustics. Previously interned at Alcon Research.
-  </p>
-  <div class="hero-links">
-    <a class="btn btn-primary" href="https://scholar.google.com/citations?hl=en&user=Y-umYyEAAAAJ" target="_blank">Google Scholar</a>
-    <a class="btn btn-ghost" href="https://www.linkedin.com/in/abhimangupta27" target="_blank">LinkedIn</a>
-    <a class="btn btn-ghost" href="mailto:abhiman@abhimangupta.com">Email</a>
-  </div>
-  <div class="scroll-nav">
-    <a class="scroll-toggle active" href="#about" data-section="about">About</a>
-    <a class="scroll-toggle" href="#education" data-section="education">Education</a>
-    <a class="scroll-toggle" href="#experience" data-section="experience">Experience</a>
-    <a class="scroll-toggle" href="#publications" data-section="publications">Publications</a>
-    <a class="scroll-toggle" href="#skills" data-section="skills">Skills</a>
-    <a class="scroll-toggle" href="#contact" data-section="contact">Contact</a>
-  </div>
-</section>
+<div class="container">
 
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-title">About</p>
-  <p>
-    I'm a PhD student in the College of Optical Sciences at the University of Arizona (GPA 3.9), where I completed rotations in biomedical optics, polarization-sensitive OCT, and selective illumination microscopy. I hold a BS in Biomedical Engineering from the same institution.
-  </p>
-  <p>
-    My research spans photoacoustic imaging, fluorescence microscopy, and optical system design. I'm particularly interested in building imaging tools that bridge the gap between benchtop optics and clinical utility.
-  </p>
-  <p>
-    Outside the lab, I'm an award-winning photographer, a former startup entrepreneur-in-residence, and a teaching assistant recognized for outstanding mentorship. I previously interned at Alcon Research.
-  </p>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <p class="section-title">Education</p>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">PhD, Optical Sciences</span>
-        <span class="timeline-date">Expected May 2029</span>
-      </div>
-      <div class="timeline-sub">University of Arizona &mdash; GPA 3.9</div>
-      <div class="timeline-body">
-        <span class="badge">Harrison H. Barrett Graduate Student Scholarship (2024)</span>
-        <span class="badge">Craig M. Berge Design Program Review Committee (2024, 2025)</span>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">BS, Biomedical Engineering</span>
-        <span class="timeline-date">May 2024</span>
-      </div>
-      <div class="timeline-sub">University of Arizona &mdash; GPA 3.6</div>
-      <div class="timeline-body">
-        <span class="badge">Roche Tissue Diagnostics Award — Most Innovative Design (2025)</span>
-        <span class="badge">Outstanding Teaching Assistant Award (2025)</span>
-        <span class="badge">3× Dean's List</span>
-        <span class="badge">Global Wildcat Tuition Award ($25K/yr)</span>
-      </div>
+  <div class="hero">
+    <h1>Abhiman Gupta</h1>
+    <p>
+      PhD student in Optical Sciences at the University of Arizona, working under Dr. Meredith Kupinski on developing a polarimetric eye model for studying ocular diseases. My interests lie in optical engineering, polarization optics, and vision science.
+    </p>
+    <div class="hero-links">
+      <a href="https://scholar.google.com/citations?hl=en&user=Y-umYyEAAAAJ" target="_blank">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/abhimangupta27" target="_blank">LinkedIn</a>
+      <a href="#" onclick="this.href='mailto:'+atob('YWJoaW1hbkBhYmhpbWFuZ3VwdGEuY29t')">Email</a>
     </div>
   </div>
-</section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <p class="section-title">Experience</p>
-  <div class="timeline">
+  <hr>
 
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">Optical Engineering Intern</span>
-        <span class="timeline-date">May 2025 – Aug. 2025</span>
-      </div>
-      <div class="timeline-sub">Alcon Surgical</div>
-      <ul class="timeline-body">
-        <li>Optical fiber testing for glaucoma surgery systems using 2.7 µm nanosecond lasers</li>
-        <li>Root Cause Failure Analysis — PC-coupling, beam profiling, NA measurements of sapphire and germanium fiber joints</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">PhD Rotation — Biomedical Applied Imaging Lab</span>
-        <span class="timeline-date">Jan. 2025 – May 2025</span>
-      </div>
-      <div class="timeline-sub">PI: Dr. Yeran Bai · University of Arizona</div>
-      <ul class="timeline-body">
-        <li>Built a DMD-based selective illumination system for multimodal fluorescence and MIP imaging</li>
-        <li>Applied Keplerian beam expanders, blazed diffraction gratings, and infinity-corrected objectives</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">PhD Rotation — Biomedical Optics & Optical Measurement Lab</span>
-        <span class="timeline-date">Sep. 2024 – Dec. 2024</span>
-      </div>
-      <div class="timeline-sub">PI: Dr. Travis Sawyer · University of Arizona</div>
-      <ul class="timeline-body">
-        <li>Resolved optic axis and retardance accumulation in Thorlabs PS-OCT data for clinical applications</li>
-        <li>Developed nonlinear least-squares fitting in MATLAB to simulate tissue layer orientations for MRI co-registration</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">Undergraduate Researcher — Experimental Ultrasound & Neural Imaging Lab</span>
-        <span class="timeline-date">May 2022 – May 2024</span>
-      </div>
-      <div class="timeline-sub">PI: Dr. Russell Witte · University of Arizona</div>
-      <ul class="timeline-body">
-        <li>Designed SOLIDWORKS assemblies for a 3D hybrid ultrasound/photoacoustic skin imaging system</li>
-        <li>Improved optical resolution and SNR of a single-element PAM system via tolerancing and MATLAB analysis</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">Biomedical Engineering Intern</span>
-        <span class="timeline-date">Jan. 2024 – Aug. 2024</span>
-      </div>
-      <div class="timeline-sub">Microvascular Therapeutics Inc.</div>
-      <ul class="timeline-body">
-        <li>Engineered drug pressurization components in SOLIDWORKS, enabling 500+ vial tests/month</li>
-        <li>Streamlined microbubble MI measurements using MATLAB, improving data collection efficiency by 20%</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <p class="section-title">Publications & Presentations</p>
-  <div class="pub-list">
-
-    <div class="pub-item">
-      <p class="pub-title">Heavy-Water Coupling Gel for Short-wave Infrared Photoacoustic Imaging</p>
-      <p class="pub-meta">C. M. Salinas, E. Reichel, <strong>A. Gupta</strong>, R. S. Witte &mdash; <span class="pub-venue">Journal of Biomedical Optics, Nov. 2023</span></p>
-    </div>
-
-    <div class="pub-item">
-      <p class="pub-title">Hands-Free in Vivo Volumetric Photoacoustic Imaging for Assessing Skin Lesions</p>
-      <p class="pub-meta">E. Reichel, C. M. Salinas, <strong>A. Gupta</strong>, et al. &mdash; <span class="pub-venue">IEEE Ultrasonics Symposium (IUS), Sep. 2023</span></p>
-    </div>
-
-    <div class="pub-item">
-      <p class="pub-title">Novel Optoacoustic Window for Real-Time Monitoring of Ultrasound Stimulation</p>
-      <p class="pub-meta">E. Reichel, C. M. Salinas, <strong>A. Gupta</strong>, et al. &mdash; <span class="pub-venue">Arizona Photonics Day, Jan. 2023</span></p>
-    </div>
-
-    <div class="pub-item">
-      <p class="pub-title">Optical Resolution Photoacoustic Microscopy for Biomedical Applications</p>
-      <p class="pub-meta"><strong>A. Gupta</strong>, E. Reichel, C. M. Salinas, R. S. Witte &mdash; <span class="pub-venue">UofA College of Medicine Research Day, Mar. 2023</span></p>
-    </div>
-
-    <div class="pub-item">
-      <p class="pub-title">Comparison of On-Body vs. Around-Body Systems for Assessment of Movement Abnormalities</p>
-      <p class="pub-meta">K. Rohrer, G. S. Pierre, ..., <strong>A. Gupta</strong>, M. J. Slepian &mdash; <span class="pub-venue">BMES Annual Meeting, Oct. 2023</span></p>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <p class="section-title">Skills</p>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <p class="skill-group-title">Programming</p>
-      <div class="skill-tags">
-        <span class="skill-tag">MATLAB</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">C++</span>
-        <span class="skill-tag">R</span>
-        <span class="skill-tag">LabVIEW</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <p class="skill-group-title">Engineering</p>
-      <div class="skill-tags">
-        <span class="skill-tag">SOLIDWORKS</span>
-        <span class="skill-tag">GD&T</span>
-        <span class="skill-tag">Optical Design</span>
-        <span class="skill-tag">Beam Profiling</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <p class="skill-group-title">Imaging</p>
-      <div class="skill-tags">
-        <span class="skill-tag">Photoacoustics</span>
-        <span class="skill-tag">PS-OCT</span>
-        <span class="skill-tag">Fluorescence</span>
-        <span class="skill-tag">MIP Microscopy</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <p class="skill-group-title">Creative</p>
-      <div class="skill-tags">
-        <span class="skill-tag">Photoshop</span>
-        <span class="skill-tag">Lightroom</span>
-        <span class="skill-tag">Photography</span>
-        <span class="skill-tag">Graphic Design</span>
-      </div>
+  <div class="section">
+    <p class="section-label">Contact</p>
+    <div class="contact-links">
+      <a href="#" onclick="this.href='mailto:'+atob('YWJoaW1hbkBhYmhpbWFuZ3VwdGEuY29t');this.textContent=atob('YWJoaW1hbkBhYmhpbWFuZ3VwdGEuY29t')">Click to reveal email</a>
+      <a href="https://www.linkedin.com/in/abhimangupta27" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?hl=en&user=Y-umYyEAAAAJ" target="_blank">Google Scholar</a>
     </div>
   </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <p class="section-title">Contact</p>
-  <div class="contact-grid">
-    <a class="contact-link" href="mailto:abhiman@abhimangupta.com">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-      abhiman@abhimangupta.com
-    </a>
-    <a class="contact-link" href="https://www.linkedin.com/in/abhimangupta27" target="_blank">
-      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      LinkedIn
-    </a>
-    <a class="contact-link" href="https://scholar.google.com/citations?hl=en&user=Y-umYyEAAAAJ" target="_blank">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      Google Scholar
-    </a>
-  </div>
-</section>
+</div>
 
 <footer>
   &copy; 2025 Abhiman Gupta
 </footer>
-
-<script>
-  const toggles = document.querySelectorAll('.scroll-toggle');
-  const sections = ['about','education','experience','publications','skills','contact'].map(id => document.getElementById(id));
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        toggles.forEach(t => t.classList.remove('active'));
-        const active = document.querySelector(`.scroll-toggle[data-section="${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-
-  sections.forEach(s => s && observer.observe(s));
-</script>
 
 </body>
 </html>
