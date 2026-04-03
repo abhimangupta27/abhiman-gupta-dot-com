@@ -61,7 +61,7 @@
 
     /* SECTION */
     .section-label {
-      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-size: 0.875rem; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--muted); margin-top: 2.5rem; margin-bottom: 1.2rem;
     }
 
@@ -81,6 +81,19 @@
     .pub-meta {
       font-size: 0.8rem; color: var(--muted);
     }
+    .section-copy {
+      padding: 0.4rem 0 1.6rem;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+    .section-copy a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+    }
+    .section-copy a:hover { text-decoration-color: var(--text); }
 
     /* FOOTER */
     footer {
@@ -98,10 +111,10 @@
 <body>
 
 <nav>
-  <span class="nav-name"><a href="index.html" style="color:inherit;text-decoration:none">Abhiman Gupta</a></span>
+  <span class="nav-name"><a href="/" style="color:inherit;text-decoration:none">Abhiman Gupta</a></span>
   <div class="nav-links">
-    <a href="publications.html">Academia</a>
-    <a href="articles.html">Articles</a>
+    <a href="/publications/">Academia</a>
+    <a href="/notes/">Notes</a>
   </div>
 </nav>
 
@@ -110,6 +123,10 @@
 </header>
 
 <main>
+
+  <p class="section-label">Current Work</p>
+
+  <p class="section-copy">I'm a second-year PhD student in the <a href="https://sites.arizona.edu/pol-lab/" target="_blank" rel="noreferrer">Polarization Lab</a> group led by <a href="https://www.optics.arizona.edu/person/meredith-kupinski" target="_blank" rel="noreferrer">Dr. Meredith Kupinski</a>. I'm co-advised by <a href="https://www.optics.arizona.edu/person/matthew-kupinski" target="_blank" rel="noreferrer">Dr. Matthew Kupinski</a>.<br><br>My research is focused on developing a polarimetric eye model for studying eye diseases such as keratoconus, cataracts, and retinal degeneration.</p>
 
   <p class="section-label">Peer-Reviewed</p>
 
