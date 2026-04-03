@@ -46,6 +46,29 @@
     .nav-links a { color: var(--muted); font-size: 0.88rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
 
+    /* SCROLL TOGGLES */
+    .scroll-nav {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+    .scroll-toggle {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.78rem; font-weight: 500;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--surface);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .scroll-toggle:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .scroll-toggle.active {
+      background: var(--accent); color: #0e0e0e;
+      border-color: var(--accent);
+    }
+
     /* SECTIONS */
     section { max-width: 760px; margin: 0 auto; padding: 6rem 2rem; }
     section + section { padding-top: 2rem; }
@@ -173,10 +196,7 @@
 <nav>
   <span class="nav-name">Abhiman Gupta</span>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#publications">Publications</a>
-    <a href="#contact">Contact</a>
+    <a href="articles.html">Articles</a>
   </div>
 </nav>
 
@@ -185,12 +205,20 @@
   <p class="hero-label">PhD Researcher · Optical Sciences</p>
   <h1 class="hero-name">Abhiman Gupta</h1>
   <p class="hero-bio">
-    PhD student in Optical Sciences at the University of Arizona, working at the intersection of biomedical imaging, optical engineering, and photoacoustics. Incoming optical engineering intern at Alcon Surgical.
+    PhD student in Optical Sciences at the University of Arizona, working at the intersection of biomedical imaging, optical engineering, and photoacoustics. Previously interned at Alcon Research.
   </p>
   <div class="hero-links">
     <a class="btn btn-primary" href="https://scholar.google.com/citations?hl=en&user=Y-umYyEAAAAJ" target="_blank">Google Scholar</a>
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/abhimangupta27" target="_blank">LinkedIn</a>
     <a class="btn btn-ghost" href="mailto:abhimangupta@arizona.edu">Email</a>
+  </div>
+  <div class="scroll-nav">
+    <a class="scroll-toggle active" href="#about" data-section="about">About</a>
+    <a class="scroll-toggle" href="#education" data-section="education">Education</a>
+    <a class="scroll-toggle" href="#experience" data-section="experience">Experience</a>
+    <a class="scroll-toggle" href="#publications" data-section="publications">Publications</a>
+    <a class="scroll-toggle" href="#skills" data-section="skills">Skills</a>
+    <a class="scroll-toggle" href="#contact" data-section="contact">Contact</a>
   </div>
 </section>
 
@@ -406,6 +434,23 @@
 <footer>
   &copy; 2025 Abhiman Gupta
 </footer>
+
+<script>
+  const toggles = document.querySelectorAll('.scroll-toggle');
+  const sections = ['about','education','experience','publications','skills','contact'].map(id => document.getElementById(id));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        toggles.forEach(t => t.classList.remove('active'));
+        const active = document.querySelector(`.scroll-toggle[data-section="${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => s && observer.observe(s));
+</script>
 
 </body>
 </html>
