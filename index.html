@@ -95,6 +95,38 @@
     .contact-links a { color: var(--muted); transition: color 0.2s; }
     .contact-links a:hover { color: var(--text); }
 
+    /* CAPTCHA */
+    #email-reveal { font-size: 0.88rem; }
+    #captcha-trigger {
+      color: var(--muted); cursor: pointer; background: none;
+      border: none; font: inherit; padding: 0; transition: color 0.2s;
+    }
+    #captcha-trigger:hover { color: var(--text); }
+    #captcha-box {
+      display: none; margin-top: 0.8rem;
+      align-items: center; gap: 0.6rem; flex-wrap: wrap;
+    }
+    #captcha-box.visible { display: flex; }
+    #captcha-question { color: var(--muted); font-size: 0.88rem; }
+    #captcha-input {
+      width: 3.5rem; padding: 0.2rem 0.4rem;
+      border: 1px solid var(--border); border-radius: 4px;
+      font: inherit; font-size: 0.88rem; color: var(--text);
+      background: var(--bg); text-align: center;
+    }
+    #captcha-input:focus { outline: none; border-color: var(--muted); }
+    #captcha-submit {
+      background: none; border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.2rem 0.7rem;
+      font: inherit; font-size: 0.82rem; color: var(--muted);
+      cursor: pointer; transition: color 0.2s, border-color 0.2s;
+    }
+    #captcha-submit:hover { color: var(--text); border-color: var(--muted); }
+    #captcha-error { color: #c0392b; font-size: 0.82rem; display: none; }
+    #email-result { color: var(--muted); font-size: 0.88rem; display: none; }
+    #email-result a { color: var(--muted); transition: color 0.2s; }
+    #email-result a:hover { color: var(--text); }
+
     /* FOOTER */
     footer {
       text-align: center; padding: 3rem 2rem;
@@ -135,8 +167,15 @@
 
   <div class="section">
     <p class="section-label">Contact</p>
-    <div class="contact-links">
-      <a href="#" onclick="this.href='mailto:'+atob('YWJoaW1hbkBhYmhpbWFuZ3VwdGEuY29t');this.textContent=atob('YWJoaW1hbkBhYmhpbWFuZ3VwdGEuY29t')">Click to reveal email</a>
+    <div id="email-reveal">
+      <button id="captcha-trigger" onclick="showCaptcha()">Click to reveal email</button>
+      <div id="captcha-box">
+        <span id="captcha-question"></span>
+        <input id="captcha-input" type="number" min="0" max="99" autocomplete="off" placeholder="?" />
+        <button id="captcha-submit" onclick="checkCaptcha()">Go</button>
+        <span id="captcha-error">Wrong answer, try again.</span>
+      </div>
+      <div id="email-result"><a id="email-link" href="#">—</a></div>
     </div>
   </div>
 
@@ -146,5 +185,44 @@
   &copy; 2026 Abhiman Gupta
 </footer>
 
+<script>
+  var _a, _b, _ans;
+  function showCaptcha() {
+    _a = Math.floor(Math.random() * 9) + 1;
+    _b = Math.floor(Math.random() * 9) + 1;
+    _ans = _a + _b;
+    document.getElementById('captcha-question').textContent = 'What is ' + _a + ' + ' + _b + '?';
+    document.getElementById('captcha-box').classList.add('visible');
+    document.getElementById('captcha-trigger').style.display = 'none';
+    document.getElementById('captcha-error').style.display = 'none';
+    document.getElementById('captcha-input').value = '';
+    document.getElementById('captcha-input').focus();
+  }
+  function checkCaptcha() {
+    var val = parseInt(document.getElementById('captcha-input').value, 10);
+    if (val === _ans) {
+      var e = atob('aGVsbG9AYWJoaW1hbmd1cHRhLmNvbQ==');
+      var link = document.getElementById('email-link');
+      link.href = 'mailto:' + e;
+      link.textContent = e;
+      document.getElementById('captcha-box').style.display = 'none';
+      document.getElementById('email-result').style.display = 'block';
+    } else {
+      var err = document.getElementById('captcha-error');
+      err.style.display = 'inline';
+      _a = Math.floor(Math.random() * 9) + 1;
+      _b = Math.floor(Math.random() * 9) + 1;
+      _ans = _a + _b;
+      document.getElementById('captcha-question').textContent = 'What is ' + _a + ' + ' + _b + '?';
+      document.getElementById('captcha-input').value = '';
+      document.getElementById('captcha-input').focus();
+    }
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && document.getElementById('captcha-box').classList.contains('visible')) {
+      checkCaptcha();
+    }
+  });
+</script>
 </body>
 </html>
