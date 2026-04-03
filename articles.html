@@ -41,16 +41,10 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-left { display: flex; align-items: center; gap: 0.6rem; }
-    .nav-back {
-      display: flex; align-items: center; gap: 0.35rem;
-      font-size: 0.82rem; color: var(--muted);
-      transition: color 0.2s;
-    }
-    .nav-back:hover { color: var(--text); }
-    .nav-divider { color: var(--border); font-size: 0.9rem; }
-    .nav-title { font-size: 0.95rem; font-weight: 600; }
-    .nav-right { font-size: 0.82rem; color: var(--muted); }
+    .nav-name { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; color: var(--text); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--muted); font-size: 0.88rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
 
     /* HEADER */
     header {
@@ -140,13 +134,10 @@
 <body>
 
 <nav>
-  <div class="nav-left">
-    <a class="nav-back" href="index.html">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-      Abhiman Gupta
-    </a>
-    <span class="nav-divider">/</span>
-    <span class="nav-title">Articles</span>
+  <span class="nav-name"><a href="index.html" style="color:inherit;text-decoration:none">Abhiman Gupta</a></span>
+  <div class="nav-links">
+    <a href="articles.html">Articles</a>
+    <a href="publications.html">Publications</a>
   </div>
 </nav>
 
