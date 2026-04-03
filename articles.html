@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles — Abhiman Gupta</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f7f5;
+      --border: #e8e8e4;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #1a1a1a;
+      --tag-bg: #f0f0ec;
+      --font: 'Georgia', 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; }
+    .nav-back {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.82rem; color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+    .nav-divider { color: var(--border); font-size: 0.9rem; }
+    .nav-title { font-size: 0.95rem; font-weight: 600; }
+    .nav-right { font-size: 0.82rem; color: var(--muted); }
+
+    /* HEADER */
+    header {
+      max-width: 680px; margin: 0 auto;
+      padding: 4rem 2rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-label {
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.8rem;
+    }
+    header h1 {
+      font-family: var(--font);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: normal; line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+    header p {
+      color: var(--muted); font-size: 0.9rem; max-width: 480px;
+    }
+
+    /* MAIN */
+    main { max-width: 680px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+    /* ARTICLE CARD */
+    .article-list { margin-top: 0; }
+    .article-card {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .article-card:hover { opacity: 0.75; }
+    .article-meta {
+      display: flex; align-items: center; gap: 0.8rem;
+      font-size: 0.75rem; color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .article-tag {
+      background: var(--tag-bg); color: var(--muted);
+      padding: 0.15rem 0.6rem; border-radius: 999px;
+      font-size: 0.7rem;
+    }
+    .article-title {
+      font-family: var(--font);
+      font-size: 1.25rem; font-weight: normal;
+      line-height: 1.35; margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .article-excerpt {
+      font-size: 0.88rem; color: var(--muted);
+      line-height: 1.65; max-width: 560px;
+    }
+    .article-read {
+      margin-top: 0.8rem;
+      font-size: 0.78rem; color: var(--text);
+      font-weight: 500; display: inline-flex; align-items: center; gap: 0.3rem;
+    }
+    .article-read::after { content: '→'; }
+
+    /* EMPTY STATE */
+    .empty {
+      padding: 5rem 0; text-align: center;
+    }
+    .empty-icon {
+      font-size: 2rem; margin-bottom: 1rem; opacity: 0.3;
+    }
+    .empty h2 {
+      font-family: var(--font); font-weight: normal;
+      font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text);
+    }
+    .empty p { font-size: 0.88rem; color: var(--muted); }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 2rem;
+      font-size: 0.75rem; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.2rem; }
+      header, main { padding-left: 1.2rem; padding-right: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a class="nav-back" href="index.html">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Abhiman Gupta
+    </a>
+    <span class="nav-divider">/</span>
+    <span class="nav-title">Articles</span>
+  </div>
+</nav>
+
+<header>
+  <p class="header-label">Writing</p>
+  <h1>Articles & Essays</h1>
+  <p>Thoughts on optical science, biomedical imaging, research, and the occasional tangent.</p>
+</header>
+
+<main>
+  <div class="article-list">
+
+    <!-- Empty state — remove this block and add article cards below when you have posts -->
+    <div class="empty">
+      <div class="empty-icon">✦</div>
+      <h2>Nothing here yet</h2>
+      <p>First article coming soon.</p>
+    </div>
+
+    <!-- Article card template (duplicate and fill in when ready):
+
+    <div class="article-card">
+      <div class="article-meta">
+        <span>April 2, 2026</span>
+        <span class="article-tag">Optics</span>
+        <span>5 min read</span>
+      </div>
+      <h2 class="article-title">Your Article Title Here</h2>
+      <p class="article-excerpt">A short excerpt or description of the article goes here. Keep it to 2–3 sentences.</p>
+      <span class="article-read">Read</span>
+    </div>
+
+    -->
+
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Abhiman Gupta
+</footer>
+
+</body>
+</html>
