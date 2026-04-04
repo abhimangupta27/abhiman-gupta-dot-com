@@ -208,10 +208,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
     }
-    #loader.exit { transform: translateY(-100%); }
     #loader.hidden { display: none; }
+    #loader canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
     #loader svg {
       width: min(95vw, 900px);
     }
@@ -274,6 +278,7 @@
 <body>
 
 <div id="loader">
+  <canvas id="loader-canvas"></canvas>
   <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Convex lens -->
     <path class="lens" d="M 100,12 Q 114,50 100,88" />
@@ -336,14 +341,93 @@
 </footer>
 
 <script>
-  // Loader: lock scroll, then exit after animation
+  // Loader: lock scroll, then disintegrate after ray animation
   document.documentElement.classList.add('loading');
-  // Exit loader after last ray finishes (~3.0s)
+
   setTimeout(function() {
     var loader = document.getElementById('loader');
-    loader.classList.add('exit');
+    var svg = loader.querySelector('svg');
+    var canvas = document.getElementById('loader-canvas');
+    var ctx = canvas.getContext('2d');
+    var dpr = window.devicePixelRatio || 1;
+
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
+
+    // Map SVG coordinates to screen coordinates
+    var svgRect = svg.getBoundingClientRect();
+    var vb = svg.viewBox.baseVal;
+    function svgToScreen(sx, sy) {
+      return {
+        x: svgRect.left + (sx - vb.x) / vb.width * svgRect.width,
+        y: svgRect.top + (sy - vb.y) / vb.height * svgRect.height
+      };
+    }
+
+    // Sample points along all SVG paths
+    var paths = svg.querySelectorAll('path');
+    var particles = [];
+    for (var i = 0; i < paths.length; i++) {
+      var path = paths[i];
+      var len = path.getTotalLength();
+      var step = 3; // sample every 3 SVG units
+      for (var d = 0; d < len; d += step) {
+        var pt = path.getPointAtLength(d);
+        var screen = svgToScreen(pt.x, pt.y);
+        var angle = Math.random() * Math.PI * 2;
+        var speed = 1.5 + Math.random() * 3;
+        particles.push({
+          x: screen.x,
+          y: screen.y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 1.5, // slight upward bias
+          size: 1.5 + Math.random() * 2,
+          alpha: 1,
+          decay: 0.02 + Math.random() * 0.02
+        });
+      }
+    }
+
+    // Hide SVG, remove loader background so canvas controls visibility
+    svg.style.display = 'none';
+    loader.style.background = 'none';
+    loader.style.pointerEvents = 'none';
+
+    var bgAlpha = 1;
+    var w = canvas.width / dpr;
+    var h = canvas.height / dpr;
+    function animate() {
+      ctx.clearRect(0, 0, w, h);
+
+      // Fade background
+      bgAlpha = Math.max(0, bgAlpha - 0.03);
+      if (bgAlpha > 0) {
+        ctx.globalAlpha = bgAlpha;
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, w, h);
+      }
+
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        if (p.alpha <= 0) continue;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.04;
+        p.alpha = Math.max(0, p.alpha - p.decay);
+        if (p.alpha <= 0) continue;
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = '#000';
+        ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(animate);
+    }
+    animate();
     document.documentElement.classList.remove('loading');
-    setTimeout(function() { loader.classList.add('hidden'); }, 1000);
+
+    // Clean up after particles fully fade (~1.5s)
+    setTimeout(function() { loader.classList.add('hidden'); }, 1500);
   }, 3500);
 </script>
 <script>
