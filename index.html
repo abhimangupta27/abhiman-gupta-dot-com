@@ -56,7 +56,7 @@
     }
     .site-name:hover { text-decoration: none; }
 
-    .nav-extra { opacity: 0; }
+    .nav-extra { opacity: 0; transition: opacity 0.3s; }
 
     /* TOP BAR — solid white strip at name height, full width */
     .top-bar {
@@ -80,7 +80,7 @@
     .hero {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: stretch;
       padding: calc(clamp(3.2rem, 10.5vw, 9.5rem) + 7rem) 16px 0;
       gap: 2rem;
     }
@@ -88,17 +88,19 @@
     .hero-left {
       width: clamp(280px, 45vw, 640px);
       flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
     }
     .hero-left p {
       font-family: EditorialNewUltralight, Georgia, serif;
       font-style: italic;
-      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+      font-size: clamp(1.77rem, 3.3vw, 2.83rem);
       font-weight: 300;
       line-height: 1.3;
       color: var(--text);
       margin-bottom: 1.4em;
     }
-    .hero-left p:last-of-type { margin-bottom: 2rem; }
+    .hero-left p:last-of-type { margin-top: auto; margin-bottom: 0; }
 
     .hero-right {
       flex: 0 0 auto;
@@ -217,6 +219,8 @@
       height: 100%;
     }
     #loader svg {
+      position: relative;
+      z-index: 1;
       width: min(95vw, 900px);
     }
 
@@ -265,13 +269,72 @@
 
     /* FOOTER */
     footer {
-      text-align: center; padding: 3rem 2rem;
+      text-align: center; padding: 1.5rem 2rem;
       font-size: 0.75rem; color: var(--muted);
     }
 
+    /* TIMELINE */
+    .timeline {
+      max-width: 640px;
+    }
+    .timeline-entry {
+      padding-bottom: 2.5rem;
+    }
+    .timeline-entry:last-child {
+      padding-bottom: 0;
+    }
+    .timeline-year {
+      font-family: FoundersGroteskCondensed, 'Arial Narrow', sans-serif;
+      font-size: clamp(0.75rem, 1vw, 0.9rem);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-year::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .timeline-role {
+      font-family: EditorialNewUltralight, Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+      line-height: 1.3;
+    }
+
+    /* LINKS */
+    .links-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .link-icon {
+      display: block;
+      color: var(--text);
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .link-icon:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+    .link-icon svg {
+      display: block;
+      width: 42px;
+      height: 42px;
+    }
+
     @media (max-width: 700px) {
-      .hero { flex-direction: column; }
-      .hero-right { width: 100%; aspect-ratio: 4 / 3; }
+      .hero { flex-direction: column; padding-top: calc(clamp(3.2rem, 10.5vw, 9.5rem) + 3.5rem); }
+      .hero-right { width: 100%; }
     }
   </style>
 </head>
@@ -292,36 +355,38 @@
   </svg>
 </div>
 
-<a href="/" class="site-name">Abhiman Gupta<span class="nav-extra"> &nbsp;•&nbsp; About</span></a>
+<a href="/" class="site-name">Abhiman Gupta<span class="nav-extra"></span></a>
 <div class="top-bar"></div>
 <div class="top-fade"></div>
 
 <div class="hero">
   <div class="hero-left">
     <p>Hello there.</p>
-    <p>I'm a PhD student in Optical Sciences, developing a polarimetric eye model for studying eye diseases.</p>
-    <p>My work intersects optical engineering, ophthalmology, and computer graphics.</p>
-    <p>Want to learn more?</p>
-    <p>Keep scrolling.</p>
+    <p>I'm a PhD student in Optical Sciences. I'm developing a polarimetric eye model for studying eye diseases.</p>
+    <p>My work is at the intersection of optical engineering, ophthalmology, and computer graphics.</p>
+    <p>Let's take risks together.</p>
   </div>
   <div class="hero-right">
-    <img src="images/headshot.jpg" alt="Abhiman Gupta" />
+    <img src="images/B23D124D-7D8A-4897-A070-59D43B701F39_1_201_a.jpeg" alt="Abhiman Gupta" />
   </div>
 </div>
 
 <hr>
 
-<div class="section" id="academia-section">
-  <h2 class="section-title">Academia</h2>
-  <div class="section-body">
-    <p>More content coming soon.</p>
+<div class="section" id="links-section" style="display: flex; align-items: center; justify-content: center; padding-top: 4rem; padding-bottom: 1rem;">
+  <div class="links-row">
+    <a class="link-icon" href="https://www.linkedin.com/in/abhimangupta27/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zM6.891 20.452H3.781V9h3.11v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a class="link-icon" href="https://scholar.google.com/citations?user=Y-umYyEAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener" aria-label="Google Scholar">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+    </a>
   </div>
 </div>
 
 <hr>
 
-<div class="section">
-  <h2 class="section-title">Contact</h2>
+<div class="section" id="contact-section" style="padding-bottom: 2rem;">
   <div id="email-reveal">
     <button id="captcha-trigger" onclick="showCaptcha()">Reveal my email</button>
     <div id="captcha-box">
@@ -334,7 +399,6 @@
   </div>
 </div>
 
-<div style="height: 200vh;"></div>
 
 <footer>
   &copy; 2026 Abhiman Gupta
@@ -376,15 +440,15 @@
         var pt = path.getPointAtLength(d);
         var screen = svgToScreen(pt.x, pt.y);
         var angle = Math.random() * Math.PI * 2;
-        var speed = 1.5 + Math.random() * 3;
+        var speed = 0.75 + Math.random() * 1.5;
         particles.push({
           x: screen.x,
           y: screen.y,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 1.5, // slight upward bias
+          vy: Math.sin(angle) * speed - 0.75,
           size: 1.5 + Math.random() * 2,
           alpha: 1,
-          decay: 0.02 + Math.random() * 0.02
+          decay: 0.01 + Math.random() * 0.01
         });
       }
     }
@@ -401,7 +465,7 @@
       ctx.clearRect(0, 0, w, h);
 
       // Fade background
-      bgAlpha = Math.max(0, bgAlpha - 0.03);
+      bgAlpha = Math.max(0, bgAlpha - 0.015);
       if (bgAlpha > 0) {
         ctx.globalAlpha = bgAlpha;
         ctx.fillStyle = '#fff';
@@ -413,7 +477,7 @@
         if (p.alpha <= 0) continue;
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.04;
+        p.vy += 0.02;
         p.alpha = Math.max(0, p.alpha - p.decay);
         if (p.alpha <= 0) continue;
         ctx.globalAlpha = p.alpha;
@@ -427,7 +491,7 @@
     document.documentElement.classList.remove('loading');
 
     // Clean up after particles fully fade (~1.5s)
-    setTimeout(function() { loader.classList.add('hidden'); }, 1500);
+    setTimeout(function() { loader.classList.add('hidden'); }, 3000);
   }, 3500);
 </script>
 <script>
@@ -436,7 +500,8 @@
     var extra = document.querySelector('.nav-extra');
     var bar = document.querySelector('.top-bar');
     var fade = document.querySelector('.top-fade');
-    var academiaSection = document.getElementById('academia-section');
+    var linksSection = document.getElementById('links-section');
+    var contactSection = document.getElementById('contact-section');
     var startSize = parseFloat(getComputedStyle(el).fontSize);
     var endSize = startSize / 3;
     var scrollRange = 250;
@@ -449,18 +514,19 @@
       var size = startSize + (endSize - startSize) * t;
       el.style.fontSize = size + 'px';
 
-      // Show "• About" when name is near its small size
-      var extraT = Math.max(0, (t - 0.75) / 0.25);
-      extra.style.opacity = String(extraT);
-
       el.style.background = 'none';
 
-      // Swap nav label based on which section is in view
-      var academiaTop = academiaSection.getBoundingClientRect().top;
-      if (academiaTop < 100) {
-        extra.innerHTML = ' &nbsp;•&nbsp; Academia';
+      // Append section label when scrolled into a named section
+      var linksTop = linksSection.getBoundingClientRect().top;
+      var contactTop = contactSection.getBoundingClientRect().top;
+      var label = '';
+      if (linksTop < 100) label = ' \u2192 Links';
+      if (contactTop < 100) label = ' \u2192 Get in Touch';
+      if (label) {
+        extra.textContent = label;
+        extra.style.opacity = '1';
       } else {
-        extra.innerHTML = ' &nbsp;•&nbsp; About';
+        extra.style.opacity = '0';
       }
 
       // Size the bar and fade mask
