@@ -157,7 +157,7 @@ html.skip-loader #loader { display: none; }
 .hero-photo { width: min(100%, 560px); }
 .hero-photo-placeholder {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 5 / 7;
   display: grid;
   place-items: center;
   background: var(--surface);
