@@ -3,205 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Academia — Abhiman Gupta</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #ffffff;
-      --surface: #f7f7f5;
-      --border: #e8e8e4;
-      --text: #1a1a1a;
-      --muted: #888;
-      --font: 'Georgia', 'Times New Roman', serif;
-      --sans: 'Inter', system-ui, -apple-system, sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* NAV */
-    nav {
-      position: sticky; top: 0;
-      z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2.5rem;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-name { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; color: var(--text); }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { color: var(--muted); font-size: 0.88rem; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
-
-    /* HEADER */
-    header {
-      max-width: 680px; margin: 0 auto;
-      padding: 4rem 2rem 2.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    header h1 {
-      font-family: var(--font);
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: normal; line-height: 1.2;
-    }
-
-    /* MAIN */
-    main { max-width: 680px; margin: 0 auto; padding: 0 2rem 6rem; }
-
-    /* SECTION */
-    .section-label {
-      font-size: 0.875rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); margin-top: 2.5rem; margin-bottom: 1.2rem;
-    }
-
-    /* PUBLICATION */
-    .pub {
-      padding: 1.4rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .pub-title {
-      font-family: var(--font);
-      font-size: 1.05rem; font-weight: normal;
-      line-height: 1.4; margin-bottom: 0.4rem;
-      color: var(--text);
-    }
-    .pub-title a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border); }
-    .pub-title a:hover { text-decoration-color: var(--text); }
-    .pub-meta {
-      font-size: 0.8rem; color: var(--muted);
-    }
-    .section-copy {
-      padding: 0.4rem 0 1.6rem;
-      font-size: 0.98rem;
-      line-height: 1.8;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-    }
-    .section-copy a {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-color: var(--border);
-    }
-    .section-copy a:hover { text-decoration-color: var(--text); }
-
-    /* FOOTER */
-    footer {
-      text-align: center; padding: 2rem;
-      font-size: 0.75rem; color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 1rem 1.2rem; }
-      header, main { padding-left: 1.2rem; padding-right: 1.2rem; }
-    }
-  </style>
+  <meta name="description" content="Research, publications, and academic work by optical sciences PhD student Abhiman Gupta." />
+  <meta name="theme-color" content="#f3f0e8" />
+  <title>Research — Abhiman Gupta</title>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Abhiman Gupta, home">
+      <span class="wordmark-mark" aria-hidden="true">AG</span>
+      <span>Abhiman Gupta</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/notes/">Writing</a>
+      <a href="/academia/" aria-current="page">Research</a>
+      <a href="/#photography">Photography</a>
+      <a href="/#about">About</a>
+    </nav>
+  </header>
 
-<nav>
-  <span class="nav-name"><a href="/" style="color:inherit;text-decoration:none">Abhiman Gupta</a></span>
-  <div class="nav-links">
-    <a href="/academia/">Academia</a>
-    <a href="/notes/">Notes</a>
-  </div>
-</nav>
+  <main class="inner-main" id="main">
+    <header class="inner-hero wrap">
+      <p class="eyebrow">Research</p>
+      <h1>Studying what light can reveal about the eye.</h1>
+      <p class="inner-intro">I’m entering my third year as an Optical Sciences PhD student in the University of Arizona’s Polarization Lab, advised by Dr. Meredith Kupinski and co-advised by Dr. Matthew Kupinski.</p>
+    </header>
 
-<header>
-  <h1>Academia</h1>
-</header>
+    <div class="content-narrow">
+      <section class="content-section" aria-labelledby="current-work">
+        <p class="content-label">Current work</p>
+        <p class="content-copy" id="current-work">I develop a polarimetric model of the eye for studying diseases including keratoconus, cataracts, and retinal degeneration—work connecting optical engineering, ophthalmology, and computer graphics.</p>
+      </section>
 
-<main>
+      <section class="content-section" aria-labelledby="peer-reviewed">
+        <p class="content-label" id="peer-reviewed">Peer-reviewed</p>
+        <div class="entry-list">
+          <article class="entry">
+            <p class="entry-year">2023</p>
+            <div>
+              <h2><a href="https://doi.org/10.1117/1.jbo.28.11.116001" target="_blank" rel="noopener noreferrer">Heavy water coupling gel for short-wave infrared photoacoustic imaging</a></h2>
+              <p class="entry-meta">C. M. Salinas, E. Reichel, <strong>A. Gupta</strong>, R. S. Witte · Journal of Biomedical Optics</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-  <p class="section-label">Current Work</p>
+      <section class="content-section" aria-labelledby="posters">
+        <p class="content-label" id="posters">Posters</p>
+        <div class="entry-list">
+          <article class="entry">
+            <p class="entry-year">2023</p>
+            <div>
+              <h2><a href="https://2023bmesannual.eventscribe.net/fsPopup.asp?PosterID=622154&amp;mode=posterInfo" target="_blank" rel="noopener noreferrer">Comparison of On-Body vs. Around-Body Systems for Assessment of Movement Abnormalities in Health and Disease</a></h2>
+              <p class="entry-meta">K. Rohrer, G. S. Pierre, …, <strong>A. Gupta</strong>, M. J. Slepian · BMES Annual Meeting</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-  <p class="section-copy">I'm a second-year PhD student in the <a href="https://sites.arizona.edu/pol-lab/" target="_blank" rel="noreferrer">Polarization Lab</a> group led by <a href="https://www.optics.arizona.edu/person/meredith-kupinski" target="_blank" rel="noreferrer">Dr. Meredith Kupinski</a>. I'm co-advised by <a href="https://www.optics.arizona.edu/person/matthew-kupinski" target="_blank" rel="noreferrer">Dr. Matthew Kupinski</a>.<br><br>My research is focused on developing a polarimetric eye model for studying eye diseases such as keratoconus, cataracts, and retinal degeneration.</p>
+      <section class="content-section" aria-labelledby="recognition">
+        <p class="content-label" id="recognition">Selected recognition</p>
+        <div class="entry-list">
+          <article class="entry"><p class="entry-year">2025</p><div><h3>Outstanding Teaching Assistant Award</h3><p class="entry-meta">University of Arizona</p></div></article>
+          <article class="entry"><p class="entry-year">2025</p><div><h3>Roche Tissue Diagnostics Award for Most Innovative Engineering Design</h3><p class="entry-meta">University of Arizona</p></div></article>
+          <article class="entry"><p class="entry-year">2024</p><div><h3>Harrison H. Barrett Graduate Student Scholarship</h3><p class="entry-meta">University of Arizona</p></div></article>
+          <article class="entry"><p class="entry-year">2024–25</p><div><h3>Review Committee Member</h3><p class="entry-meta">Craig M. Berge Engineering Design Program</p></div></article>
+          <article class="entry"><p class="entry-year">Undergrad</p><div><h3>Arizona FORGE Biomedical Entrepreneur Scholarship</h3><p class="entry-meta">$9,600 toward “Un-afflict,” an AI-enabled health behavior change startup concept</p></div></article>
+          <article class="entry"><p class="entry-year">2020</p><div><h3>Global Wildcat Tuition Award</h3><p class="entry-meta">University of Arizona</p></div></article>
+        </div>
+      </section>
 
-  <p class="section-label">Peer-Reviewed</p>
+      <section class="content-section" aria-labelledby="elsewhere">
+        <p class="content-label" id="elsewhere">Elsewhere</p>
+        <div class="entry-list">
+          <article class="entry">
+            <p class="entry-year">Talk</p>
+            <div><h3><a href="https://www.youtube.com/watch?v=Sna2PdU9dNk&amp;t=6s" target="_blank" rel="noopener noreferrer">iVoices: Channeling Technology Experiences into Curricula, and Scholarship</a></h3><p class="entry-meta">Center for University Education Scholarship</p></div>
+          </article>
+          <article class="entry">
+            <p class="entry-year">Lab</p>
+            <div><h3><a href="https://sites.arizona.edu/pol-lab/" target="_blank" rel="noopener noreferrer">Polarization Lab</a></h3><p class="entry-meta">University of Arizona, Wyant College of Optical Sciences</p></div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
 
-  <div class="pub">
-    <p class="pub-title">
-      <a href="https://doi.org/10.1117/1.jbo.28.11.116001" target="_blank">Heavy water coupling gel for short-wave infrared photoacoustic imaging</a>
-    </p>
-    <p class="pub-meta">C. M. Salinas, E. Reichel, <strong>A. Gupta</strong>, R. S. Witte &mdash; Journal of Biomedical Optics, 2023</p>
-  </div>
-
-  <p class="section-label">Posters</p>
-
-  <div class="pub">
-    <p class="pub-title">
-      <a href="https://2023bmesannual.eventscribe.net/fsPopup.asp?PosterID=622154&mode=posterInfo" target="_blank">Comparison of On-Body vs. Around-Body Systems for Assessment of Movement Abnormalities in Health and Disease</a>
-    </p>
-    <p class="pub-meta">K. Rohrer, G. S. Pierre, ..., <strong>A. Gupta</strong>, M. J. Slepian &mdash; BMES Annual Meeting, 2023</p>
-  </div>
-
-  <p class="section-label">Accolades</p>
-
-  <div class="pub">
-    <p class="pub-title">Review Committee Member, Craig M. Berge Engineering Design Program</p>
-    <p class="pub-meta">University of Arizona &mdash; 2024, 2025</p>
-  </div>
-
-  <div class="pub">
-    <p class="pub-title">Harrison H. Barrett Graduate Student Scholarship</p>
-    <p class="pub-meta">University of Arizona &mdash; 2024</p>
-  </div>
-
-  <div class="pub">
-    <p class="pub-title">Roche Tissue Diagnostics Award for Most Innovative Engineering Design</p>
-    <p class="pub-meta">University of Arizona &mdash; 2025</p>
-  </div>
-
-  <div class="pub">
-    <p class="pub-title">Outstanding Teaching Assistant Award</p>
-    <p class="pub-meta">University of Arizona &mdash; 2025</p>
-  </div>
-
-  <div class="pub">
-    <p class="pub-title">Dean's List and Academic Year Distinction</p>
-    <p class="pub-meta">3x Dean's List, 1x Academic Year Distinction &mdash; various years</p>
-  </div>
-
-  <div class="pub">
-    <p class="pub-title">Global Wildcat Tuition Award</p>
-    <p class="pub-meta">$25,000 per year &mdash; 2020</p>
-  </div>
-
-  <div class="pub">
-    <p class="pub-title">Arizona FORGE Biomedical Entrepreneur Scholarship</p>
-    <p class="pub-meta">$9,600 granted toward "Un-afflict," an AI-enabled health behavior change startup concept</p>
-  </div>
-
-  <div class="pub">
-    <p class="pub-title">
-      <a href="https://www.youtube.com/watch?v=Sna2PdU9dNk&t=6s" target="_blank" rel="noreferrer">iVoices: Channeling Technology Experiences into Curricula, and Scholarship</a>
-    </p>
-    <p class="pub-meta">Speaker for Center for University Education Scholarship</p>
-  </div>
-
-  <div class="pub">
-    <p class="pub-title">
-      <a href="https://www.instagram.com/p/Bhdi9vYAuM_/?utm_medium=copy_link" target="_blank" rel="noreferrer">4X Award-Winning Photographer</a>
-    </p>
-    <p class="pub-meta">Most known for this photograph</p>
-  </div>
-
-</main>
-
-<footer>
-  &copy; 2026 Abhiman Gupta
-</footer>
-
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div><p class="footer-invite">Careful models.</p><p>Useful results.</p></div>
+      <div class="footer-links">
+        <a href="https://scholar.google.com/citations?user=Y-umYyEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+        <a href="/notes/">Writing →</a>
+      </div>
+      <p class="footer-meta">© 2026 Abhiman Gupta<br />Tucson, Arizona.</p>
+    </div>
+  </footer>
+  <script src="/script.js"></script>
 </body>
 </html>

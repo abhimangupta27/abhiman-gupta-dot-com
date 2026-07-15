@@ -3,610 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Abhiman Gupta is a PhD student in Optical Sciences with interests across biomedical engineering, health, photography, writing, and independent projects." />
+  <meta name="theme-color" content="#f3f0e8" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Abhiman Gupta" />
+  <meta property="og:description" content="Research, photography, writing, and other work." />
+  <meta property="og:url" content="https://abhimangupta.com/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Abhiman Gupta" />
+  <meta name="twitter:description" content="Research, photography, writing, and other work." />
   <title>Abhiman Gupta</title>
-  <style>
-    @font-face {
-      font-family: FoundersGroteskCondensed;
-      src: url('fonts/FoundersGroteskCondensed/FoundersGroteskCondensed-Medium.otf');
-      font-weight: 500;
-    }
-    @font-face {
-      font-family: EditorialNewUltralight;
-      src: url('fonts/EditorialNew/EditorialNew-Ultralight.otf');
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #ffffff;
-      --border: #e8e8e4;
-      --text: #000000;
-      --muted: #888;
-      --font: 'Inter', system-ui, -apple-system, sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    a { color: var(--text); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* SITE NAME */
-    .site-name {
-      position: fixed;
-      top: 0; left: 0;
-      z-index: 100;
-      padding: 10px 16px 0.2em;
-      font-family: FoundersGroteskCondensed, 'Arial Narrow', sans-serif;
-      font-size: clamp(3.2rem, 10.5vw, 9.5rem);
-      font-weight: 500;
-      line-height: 0.9;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      color: var(--text);
-      text-decoration: none;
-      background: transparent;
-    }
-    .site-name:hover { text-decoration: none; }
-
-    .nav-extra { opacity: 0; transition: opacity 0.3s; }
-
-    /* TOP BAR — solid white strip at name height, full width */
-    .top-bar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 98;
-      pointer-events: none;
-      background: #fff;
-    }
-    /* TOP FADE — gradient fade below bar, text side only */
-    .top-fade {
-      position: fixed;
-      top: 0; left: 0;
-      width: calc(100% - clamp(280px, 45vw, 640px) - 2rem);
-      z-index: 99;
-      pointer-events: none;
-      background: linear-gradient(to bottom, #fff 0%, #fff 40%, transparent 100%);
-    }
-
-    /* HERO */
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      padding: calc(clamp(3.2rem, 10.5vw, 9.5rem) + 7rem) 16px 0;
-      gap: 2rem;
-    }
-
-    .hero-left {
-      width: clamp(280px, 45vw, 640px);
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-    }
-    .hero-left p {
-      font-family: EditorialNewUltralight, Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1.77rem, 3.3vw, 2.83rem);
-      font-weight: 300;
-      line-height: 1.3;
-      color: var(--text);
-      margin-bottom: 1.4em;
-    }
-    .hero-left p:last-of-type { margin-top: auto; margin-bottom: 0; }
-
-    .hero-right {
-      flex: 0 0 auto;
-      width: clamp(280px, 45vw, 640px);
-      aspect-ratio: 1 / 1;
-      background: #f0efed;
-      overflow: hidden;
-    }
-    .hero-right img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* DIVIDER */
-    hr {
-      border: none; border-top: 1px solid var(--border);
-      margin: 3rem 16px 0;
-    }
-
-    /* SECTION */
-    .section { padding: 4rem 16px 4rem; }
-    .section-title {
-      font-family: FoundersGroteskCondensed, 'Arial Narrow', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      line-height: 0.9;
-      margin-bottom: 2rem;
-    }
-    .section-body {
-      font-family: EditorialNewUltralight, Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-      line-height: 1.5;
-      max-width: 640px;
-    }
-    .section-body p { margin-bottom: 1em; }
-
-    /* CAPTCHA */
-    #email-reveal {
-      font-family: EditorialNewUltralight, Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    }
-    #captcha-trigger {
-      color: var(--text); cursor: pointer; background: none;
-      border: none; font: inherit; padding: 0;
-      border-bottom: 1px solid var(--border);
-      transition: border-color 0.2s;
-    }
-    #captcha-trigger:hover { border-color: var(--text); text-decoration: none; }
-    #captcha-box {
-      display: none; margin-top: 1.5rem;
-      align-items: baseline; gap: 0.8rem; flex-wrap: wrap;
-    }
-    #captcha-box.visible { display: flex; }
-    #captcha-question {
-      font-family: EditorialNewUltralight, Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-      color: var(--text);
-    }
-    #captcha-input {
-      width: 3rem; padding: 0.3rem 0;
-      border: none; border-bottom: 1px solid var(--border);
-      border-radius: 0;
-      font-family: FoundersGroteskCondensed, 'Arial Narrow', sans-serif;
-      font-size: 1.2rem; color: var(--text);
-      background: transparent; text-align: center;
-      letter-spacing: 0.05em;
-    }
-    #captcha-input:focus { outline: none; border-color: var(--text); }
-    #captcha-submit {
-      background: none; border: none; border-bottom: 1px solid var(--border);
-      border-radius: 0; padding: 0.3rem 0;
-      font-family: FoundersGroteskCondensed, 'Arial Narrow', sans-serif;
-      font-size: 0.9rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      cursor: pointer; transition: color 0.2s, border-color 0.2s;
-    }
-    #captcha-submit:hover { color: var(--text); border-color: var(--text); }
-    #captcha-error {
-      color: #c0392b; display: none;
-      font-family: EditorialNewUltralight, Georgia, serif;
-      font-style: italic;
-      font-size: clamp(0.9rem, 1.4vw, 1.1rem);
-    }
-    #email-result { display: none; }
-    #email-result a {
-      font-family: EditorialNewUltralight, Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-      transition: border-color 0.2s;
-    }
-    #email-result a:hover { border-color: var(--text); text-decoration: none; }
-
-    /* LOADER */
-    #loader {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: #02040d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #loader.hidden { display: none; }
-    #loader canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-    #loader svg {
-      position: relative;
-      z-index: 1;
-      width: min(95vw, 900px);
-      background: transparent;
-    }
-
-    .lens-glass {
-      fill: url(#glass);
-      stroke: rgba(202, 239, 255, 0.95);
-      stroke-width: 0.8;
-      filter: drop-shadow(0 0 7px rgba(111, 217, 255, 0.62));
-    }
-    .focal-flare { fill: #eafcff; filter: drop-shadow(0 0 8px #9feaff); }
-
-    /* Ray paths */
-    .ray {
-      fill: none;
-      stroke: #a9e9ff;
-      stroke-width: 1.15;
-      stroke-linecap: round;
-      filter: drop-shadow(0 0 5px rgba(126, 221, 255, 0.82));
-    }
-    .ray-1 {
-      stroke-dasharray: 160;
-      stroke-dashoffset: 160;
-      animation: draw-ray 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-    }
-    .ray-2 {
-      stroke-dasharray: 160;
-      stroke-dashoffset: 160;
-      animation: draw-ray 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-    }
-    .ray-3 {
-      stroke-dasharray: 160;
-      stroke-dashoffset: 160;
-      animation: draw-ray 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.0s forwards;
-    }
-    .ray-4 {
-      stroke-dasharray: 160;
-      stroke-dashoffset: 160;
-      animation: draw-ray 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
-    }
-    .ray-5 {
-      stroke-dasharray: 160;
-      stroke-dashoffset: 160;
-      animation: draw-ray 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
-    }
-    @keyframes draw-ray {
-      to { stroke-dashoffset: 0; }
-    }
-
-
-    /* Lock scroll during load */
-    html.loading { overflow: hidden; }
-
-    /* FOOTER */
-    footer {
-      text-align: center; padding: 1.5rem 2rem;
-      font-size: 0.75rem; color: var(--muted);
-    }
-
-    /* TIMELINE */
-    .timeline {
-      max-width: 640px;
-    }
-    .timeline-entry {
-      padding-bottom: 2.5rem;
-    }
-    .timeline-entry:last-child {
-      padding-bottom: 0;
-    }
-    .timeline-year {
-      font-family: FoundersGroteskCondensed, 'Arial Narrow', sans-serif;
-      font-size: clamp(0.75rem, 1vw, 0.9rem);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    .timeline-year::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    .timeline-role {
-      font-family: EditorialNewUltralight, Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1.35rem, 2.4vw, 1.9rem);
-      line-height: 1.3;
-    }
-
-    /* LINKS */
-    .links-row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-    }
-    .link-icon {
-      display: block;
-      color: var(--text);
-      opacity: 0.7;
-      transition: opacity 0.3s;
-    }
-    .link-icon:hover {
-      opacity: 1;
-      text-decoration: none;
-    }
-    .link-icon svg {
-      display: block;
-      width: 42px;
-      height: 42px;
-    }
-
-    @media (max-width: 700px) {
-      .hero { flex-direction: column; padding-top: calc(clamp(3.2rem, 10.5vw, 9.5rem) + 3.5rem); }
-      .hero-right { width: 100%; }
-    }
-  </style>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-
-<div id="loader">
-  <canvas id="loader-canvas"></canvas>
-  <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#f0fcff" stop-opacity=".72"/>
-        <stop offset=".2" stop-color="#78caff" stop-opacity=".22"/>
-        <stop offset=".52" stop-color="#315aab" stop-opacity=".42"/>
-        <stop offset=".78" stop-color="#cf8dff" stop-opacity=".2"/>
-        <stop offset="1" stop-color="#dffaff" stop-opacity=".62"/>
-      </linearGradient>
-    </defs>
-    <g fill="#dff6ff" opacity=".72">
-      <circle cx="11" cy="14" r=".38"/><circle cx="24" cy="77" r=".28"/><circle cx="39" cy="11" r=".32"/>
-      <circle cx="53" cy="88" r=".42"/><circle cx="69" cy="16" r=".25"/><circle cx="78" cy="79" r=".34"/>
-      <circle cx="120" cy="15" r=".38"/><circle cx="143" cy="29" r=".28"/><circle cx="148" cy="79" r=".4"/>
-      <circle cx="132" cy="91" r=".24"/><circle cx="92" cy="8" r=".3"/>
-    </g>
-    <!-- Dimensional convex lens -->
-    <path class="lens-glass" d="M100,12 Q114,50 100,88 Q86,50 100,12Z" />
-    <!-- 5 collimated rays converging to focus -->
-    <path class="ray ray-1" d="M 5,20 L 100,20 L 155,50" />
-    <path class="ray ray-2" d="M 5,35 L 100,35 L 155,50" />
-    <path class="ray ray-3" d="M 5,50 L 100,50 L 155,50" />
-    <path class="ray ray-4" d="M 5,65 L 100,65 L 155,50" />
-    <path class="ray ray-5" d="M 5,80 L 100,80 L 155,50" />
-    <circle class="focal-flare" cx="155" cy="50" r="1.7"/>
-    <path d="M149,50H160 M155,44V56" stroke="#dffaff" stroke-width=".28" opacity=".8"/>
-  </svg>
-</div>
-
-<a href="/" class="site-name">Abhiman Gupta<span class="nav-extra"></span></a>
-<div class="top-bar"></div>
-<div class="top-fade"></div>
-
-<div class="hero">
-  <div class="hero-left">
-    <p>Hello there.</p>
-    <p>I'm a PhD student in Optical Sciences. I'm developing a polarimetric eye model for studying eye diseases.</p>
-    <p>My work is at the intersection of optical engineering, ophthalmology, and computer graphics.</p>
-    <p>Let's take risks together.</p>
+  <div id="loader">
+    <canvas id="loader-canvas"></canvas>
+    <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Convex lens -->
+      <path class="lens" d="M 100,12 Q 114,50 100,88" />
+      <path class="lens" d="M 100,12 Q 86,50 100,88" />
+      <!-- 5 collimated rays converging to focus -->
+      <path class="ray ray-1" d="M 5,20 L 100,20 L 155,50" />
+      <path class="ray ray-2" d="M 5,35 L 100,35 L 155,50" />
+      <path class="ray ray-3" d="M 5,50 L 100,50 L 155,50" />
+      <path class="ray ray-4" d="M 5,65 L 100,65 L 155,50" />
+      <path class="ray ray-5" d="M 5,80 L 100,80 L 155,50" />
+    </svg>
   </div>
-  <div class="hero-right">
-    <img src="images/B23D124D-7D8A-4897-A070-59D43B701F39_1_201_a.jpeg" alt="Abhiman Gupta" />
-  </div>
-</div>
 
-<hr>
-
-<div class="section" id="links-section" style="display: flex; align-items: center; justify-content: center; padding-top: 4rem; padding-bottom: 1rem;">
-  <div class="links-row">
-    <a class="link-icon" href="https://www.linkedin.com/in/abhimangupta27/" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zM6.891 20.452H3.781V9h3.11v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Abhiman Gupta, home">
+      <span class="wordmark-mark" aria-hidden="true">AG</span>
+      <span>Abhiman Gupta</span>
     </a>
-    <a class="link-icon" href="https://scholar.google.com/citations?user=Y-umYyEAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener" aria-label="Google Scholar">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-    </a>
-  </div>
-</div>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/notes/">Writing</a>
+      <a href="/academia/">Research</a>
+      <a href="#photography">Photography</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
 
-<hr>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Hello, I’m Abhiman.</p>
+        <h1 id="hero-title">A place for<br /><em>the work I care about.</em></h1>
+      </div>
+      <div class="hero-aside">
+        <p>I’m Abhiman. Right now, I’m pursuing a PhD in optical sciences. Beyond that, I make photographs, write from experience, and build ideas wherever science, health, and human possibility meet.</p>
+        <div class="text-links">
+          <a class="arrow-link" href="/academia/">See what I’m working on</a>
+          <a class="arrow-link" href="/notes/">Read the field notes</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#now"><span>Scroll to explore</span><span aria-hidden="true">↓</span></a>
+    </section>
 
-<div class="section" id="contact-section" style="padding-bottom: 2rem;">
-  <div id="email-reveal">
-    <button id="captcha-trigger" onclick="showCaptcha()">Reveal my email</button>
-    <div id="captcha-box">
-      <span id="captcha-question"></span>
-      <input id="captcha-input" type="number" min="0" max="99" autocomplete="off" placeholder="?" />
-      <button id="captcha-submit" onclick="checkCaptcha()">Go</button>
-      <span id="captcha-error">Try again.</span>
+    <section class="now-strip" id="now" aria-label="Current work">
+      <div class="wrap now-grid">
+        <p class="section-kicker">Now</p>
+        <p>Entering year three of a PhD in Optical Sciences</p>
+        <p>Studying the living eye through light</p>
+        <p>Making essays, photographs &amp; experiments</p>
+      </div>
+    </section>
+
+    <section class="feature section wrap" aria-labelledby="writing-heading">
+      <div class="section-heading">
+        <p class="section-kicker">01 · Writing</p>
+        <h2 id="writing-heading">Field notes from the less linear path.</h2>
+      </div>
+      <article class="feature-card">
+        <div class="feature-meta">
+          <p class="mono-label">Life experience · In progress</p>
+          <span aria-hidden="true">↗</span>
+        </div>
+        <div class="feature-content">
+          <h3>The cold email that changed my senior year</h3>
+          <p>A true story about curiosity, persistence, and the unlikely message that led to an internship.</p>
+          <a class="arrow-link" href="/notes/">Visit the notebook</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="research section section-dark" aria-labelledby="research-heading">
+      <div class="wrap research-grid">
+        <div class="section-heading">
+          <p class="section-kicker">02 · Research</p>
+          <h2 id="research-heading">Using light to understand the living eye.</h2>
+        </div>
+        <div class="research-copy">
+          <p class="lead">Right now, light is teaching me how to see the living eye differently.</p>
+          <p>One current thread sits at the intersection of optical engineering, ophthalmology, and computer graphics. I develop polarimetric eye models to study how tissue changes in conditions including keratoconus, cataracts, and retinal degeneration.</p>
+          <dl class="research-details">
+            <div><dt>Foundation</dt><dd>Biomedical Engineering</dd></div>
+            <div><dt>Current field</dt><dd>Optical Sciences</dd></div>
+            <div><dt>Focus</dt><dd>Imaging · Polarization · Eye disease</dd></div>
+          </dl>
+          <a class="button-link button-light" href="/academia/">Research & publications <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="photography section wrap" id="photography" aria-labelledby="photography-heading">
+      <div class="photo-composition">
+        <figure class="photo-frame">
+          <img src="/images/headshot.jpg" alt="Portrait photograph of a person holding a glowing sparkler" />
+        </figure>
+        <p class="photo-index" aria-hidden="true">01 / 10 years</p>
+      </div>
+      <div class="photo-copy">
+        <p class="section-kicker">03 · Photography</p>
+        <h2 id="photography-heading">Another way of paying attention.</h2>
+        <p>I’ve been making photographs for a decade, with a particular love for portraits. The practice taught me patience long before research did—and four local awards were a welcome footnote.</p>
+        <a class="arrow-link" href="https://www.instagram.com/p/Bhdi9vYAuM_/" target="_blank" rel="noopener noreferrer">See the award-winning frame</a>
+      </div>
+    </section>
+
+    <section class="interests section" aria-labelledby="interests-heading">
+      <div class="wrap">
+        <div class="section-heading interests-heading">
+          <p class="section-kicker">04 · Ideas worth keeping</p>
+          <h2 id="interests-heading">Things I keep coming back to.</h2>
+          <p>Books, essays, and ideas across biology, nutrition, biochemistry, optics, and the craft of living well. An annotated reading list is taking shape.</p>
+        </div>
+        <div class="interest-list" aria-label="Topics of interest">
+          <span>Biology</span><span>Nutrition</span><span>Biochemistry</span><span>Optics</span><span>Medicine</span><span>Creative practice</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section wrap" id="about" aria-labelledby="about-heading">
+      <div class="about-portrait">
+        <img src="/images/B23D124D-7D8A-4897-A070-59D43B701F39_1_201_a.jpeg" alt="Abhiman Gupta smiling outdoors" />
+      </div>
+      <div class="about-copy">
+        <p class="section-kicker">05 · About</p>
+        <h2 id="about-heading">No single lane.<br />Just a direction of travel.</h2>
+        <p>Biomedical engineering brought me close to human health. Optics gave me a new language for that curiosity. I’m most alive when I’m learning quickly, connecting unlikely ideas, and turning curiosity into something real.</p>
+        <p>This site is a record of that motion: research I’m proud of, stories I don’t want to forget, and projects and possibilities still taking shape.</p>
+        <button class="email-button" type="button" data-email-reveal>Reveal my email</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-invite">Something worth making?</p>
+        <p>Let’s talk.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/abhimangupta27/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://scholar.google.com/citations?user=Y-umYyEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+      </div>
+      <p class="footer-meta">© 2026 Abhiman Gupta<br />Made with curiosity in Tucson.</p>
     </div>
-    <div id="email-result"><a id="email-link" href="#">—</a></div>
-  </div>
-</div>
+  </footer>
 
-
-<footer>
-  &copy; 2026 Abhiman Gupta
-</footer>
-
-<script>
-  // Loader: lock scroll, then disintegrate after ray animation
-  document.documentElement.classList.add('loading');
-
-  setTimeout(function() {
-    var loader = document.getElementById('loader');
-    var svg = loader.querySelector('svg');
-    var canvas = document.getElementById('loader-canvas');
-    var ctx = canvas.getContext('2d');
-    var dpr = window.devicePixelRatio || 1;
-
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    ctx.scale(dpr, dpr);
-
-    // Map SVG coordinates to screen coordinates
-    var svgRect = svg.getBoundingClientRect();
-    var vb = svg.viewBox.baseVal;
-    function svgToScreen(sx, sy) {
-      return {
-        x: svgRect.left + (sx - vb.x) / vb.width * svgRect.width,
-        y: svgRect.top + (sy - vb.y) / vb.height * svgRect.height
-      };
-    }
-
-    // Sample points along all SVG paths
-    var paths = svg.querySelectorAll('path');
-    var particles = [];
-    for (var i = 0; i < paths.length; i++) {
-      var path = paths[i];
-      var len = path.getTotalLength();
-      var step = 3; // sample every 3 SVG units
-      for (var d = 0; d < len; d += step) {
-        var pt = path.getPointAtLength(d);
-        var screen = svgToScreen(pt.x, pt.y);
-        var angle = Math.random() * Math.PI * 2;
-        var speed = 0.75 + Math.random() * 1.5;
-        particles.push({
-          x: screen.x,
-          y: screen.y,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.75,
-          size: 1.5 + Math.random() * 2,
-          alpha: 1,
-          decay: 0.01 + Math.random() * 0.01
-        });
-      }
-    }
-
-    // Hide SVG, remove loader background so canvas controls visibility
-    svg.style.display = 'none';
-    loader.style.background = 'none';
-    loader.style.pointerEvents = 'none';
-
-    var bgAlpha = 1;
-    var w = canvas.width / dpr;
-    var h = canvas.height / dpr;
-    function animate() {
-      ctx.clearRect(0, 0, w, h);
-
-      // Fade background
-      bgAlpha = Math.max(0, bgAlpha - 0.015);
-      if (bgAlpha > 0) {
-        ctx.globalAlpha = bgAlpha;
-        ctx.fillStyle = '#02040d';
-        ctx.fillRect(0, 0, w, h);
-      }
-
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        if (p.alpha <= 0) continue;
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vy += 0.02;
-        p.alpha = Math.max(0, p.alpha - p.decay);
-        if (p.alpha <= 0) continue;
-        ctx.globalAlpha = p.alpha;
-        ctx.fillStyle = i % 5 === 0 ? '#d7a7ff' : '#c8f4ff';
-        ctx.shadowColor = ctx.fillStyle;
-        ctx.shadowBlur = 8;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size / 2, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
-      requestAnimationFrame(animate);
-    }
-    animate();
-    document.documentElement.classList.remove('loading');
-
-    // Clean up after particles fully fade (~1.5s)
-    setTimeout(function() { loader.classList.add('hidden'); }, 3000);
-  }, 3500);
-</script>
-<script>
-  (function() {
-    var el = document.querySelector('.site-name');
-    var extra = document.querySelector('.nav-extra');
-    var bar = document.querySelector('.top-bar');
-    var fade = document.querySelector('.top-fade');
-    var linksSection = document.getElementById('links-section');
-    var contactSection = document.getElementById('contact-section');
-    var startSize = parseFloat(getComputedStyle(el).fontSize);
-    var endSize = startSize / 3;
-    var scrollRange = 250;
-
-    function loop() {
-      var y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      var t = Math.max(0, Math.min(y / scrollRange, 1));
-
-      // Smoothly shrink font-size from big to small
-      var size = startSize + (endSize - startSize) * t;
-      el.style.fontSize = size + 'px';
-
-      el.style.background = 'none';
-
-      // Append section label when scrolled into a named section
-      var linksTop = linksSection.getBoundingClientRect().top;
-      var contactTop = contactSection.getBoundingClientRect().top;
-      var label = '';
-      if (linksTop < 100) label = ' \u2192 Links';
-      if (contactTop < 100) label = ' \u2192 Get in Touch';
-      if (label) {
-        extra.textContent = label;
-        extra.style.opacity = '1';
-      } else {
-        extra.style.opacity = '0';
-      }
-
-      // Size the bar and fade mask
-      var nameH = el.offsetHeight;
-      bar.style.height = nameH + 'px';
-      fade.style.height = (nameH + 40) + 'px';
-
-      requestAnimationFrame(loop);
-    }
-
-    requestAnimationFrame(loop);
-  })();
-</script>
-<script>
-
-  var _a, _b, _ans;
-  function showCaptcha() {
-    _a = Math.floor(Math.random() * 9) + 1;
-    _b = Math.floor(Math.random() * 9) + 1;
-    _ans = _a + _b;
-    document.getElementById('captcha-question').textContent = 'What is ' + _a + ' + ' + _b + '?';
-    document.getElementById('captcha-box').classList.add('visible');
-    document.getElementById('captcha-trigger').style.display = 'none';
-    document.getElementById('captcha-error').style.display = 'none';
-    document.getElementById('captcha-input').value = '';
-    document.getElementById('captcha-input').focus();
-  }
-  function checkCaptcha() {
-    var val = parseInt(document.getElementById('captcha-input').value, 10);
-    if (val === _ans) {
-      var e = atob('aGVsbG9AYWJoaW1hbmd1cHRhLmNvbQ==');
-      var link = document.getElementById('email-link');
-      link.href = 'mailto:' + e;
-      link.textContent = e;
-      document.getElementById('captcha-box').style.display = 'none';
-      document.getElementById('email-result').style.display = 'block';
-    } else {
-      var err = document.getElementById('captcha-error');
-      err.style.display = 'inline';
-      _a = Math.floor(Math.random() * 9) + 1;
-      _b = Math.floor(Math.random() * 9) + 1;
-      _ans = _a + _b;
-      document.getElementById('captcha-question').textContent = 'What is ' + _a + ' + ' + _b + '?';
-      document.getElementById('captcha-input').value = '';
-      document.getElementById('captcha-input').focus();
-    }
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && document.getElementById('captcha-box').classList.contains('visible')) {
-      checkCaptcha();
-    }
-  });
-</script>
+  <script src="/script.js"></script>
 </body>
 </html>
