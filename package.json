@@ -1,0 +1,12 @@
+{
+  "name": "abhiman-gupta-personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "photos": "python3 scripts/build_photography.py",
+    "check": "node --check script.js && node --check photography/photography.js",
+    "build": "npm run photos && npm run check && node scripts/build_site.mjs"
+  }
+}
+
