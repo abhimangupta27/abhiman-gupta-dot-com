@@ -182,7 +182,7 @@ html.skip-loader #loader { display: none; }
   font: 200 clamp(3.8rem, 7.3vw, 7.1rem)/0.92 var(--display);
   letter-spacing: -0.045em;
 }
-.contact-section h2 {
+.contact-section h1, .contact-section h2 {
   margin: 1rem 0 0;
   font: 200 clamp(2.4rem, 4.5vw, 4.4rem)/1 var(--display);
   letter-spacing: -0.035em;
@@ -191,7 +191,8 @@ html.skip-loader #loader { display: none; }
 .prose > p:first-child { margin-top: 0; }
 .prose p { font-size: 1rem; }
 .contact-section { padding-block: 8rem; border-top: 1px solid var(--line); }
-.contact-section h2 { margin-bottom: 1.5rem; }
+.contact-section h1, .contact-section h2 { margin-bottom: 1.5rem; }
+.contact-section h1 { margin-top: 1rem; }
 .contact-section > p:not(.eyebrow) { max-width: 470px; color: var(--muted); }
 .contact-links {
   max-width: 680px;

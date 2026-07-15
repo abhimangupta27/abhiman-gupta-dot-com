@@ -10,6 +10,7 @@ const siteEntries = [
   "styles.css",
   "script.js",
   "academia",
+  "contact",
   "notes",
   "photography",
   "images",
@@ -120,4 +121,3 @@ await rm(output, { recursive: true, force: true });
 await mkdir(join(output, "server"), { recursive: true });
 await writeFile(serverOutput, worker);
 console.log(`Built ${sourceFiles.length} files for Sites.`);
-
