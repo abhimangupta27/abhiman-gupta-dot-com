@@ -11,6 +11,15 @@
   <meta property="og:url" content="https://abhimangupta.com/" />
   <meta name="twitter:card" content="summary" />
   <title>Abhiman Gupta</title>
+  <script>
+    try {
+      if (window.location.hash === '#contact' || window.sessionStorage.getItem('abhiman-intro-seen')) {
+        document.documentElement.classList.add('skip-loader');
+      }
+    } catch (error) {
+      if (window.location.hash === '#contact') document.documentElement.classList.add('skip-loader');
+    }
+  </script>
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -56,8 +65,12 @@
     <section class="contact-section wrap" id="contact" aria-labelledby="contact-title">
       <p class="eyebrow">Contact</p>
       <h2 id="contact-title">Get in touch.</h2>
-      <p>For photography, projects, or anything else worth discussing.</p>
-      <button class="email-button" type="button" data-email-reveal>Reveal my email</button>
+      <p>If something here starts a conversation, these are the best places to find me.</p>
+      <ul class="contact-links">
+        <li><a href="https://www.instagram.com/abhimangupta/" target="_blank" rel="noopener noreferrer">Photography <span>@abhimangupta ↗</span></a></li>
+        <li><a href="https://www.instagram.com/portraits.by.abhiman/" target="_blank" rel="noopener noreferrer">Portraits <span>@portraits.by.abhiman ↗</span></a></li>
+        <li><a href="https://www.linkedin.com/in/abhimangupta27/" target="_blank" rel="noopener noreferrer">LinkedIn <span>Abhiman Gupta ↗</span></a></li>
+      </ul>
     </section>
   </main>
 
@@ -65,7 +78,6 @@
     <p>© 2026 Abhiman Gupta</p>
     <div>
       <a href="https://www.linkedin.com/in/abhimangupta27/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      <a href="https://scholar.google.com/citations?user=Y-umYyEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
     </div>
   </footer>
 

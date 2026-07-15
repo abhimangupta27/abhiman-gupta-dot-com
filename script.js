@@ -1,8 +1,14 @@
 (function () {
   var loader = document.getElementById('loader');
+  var skipLoader = document.documentElement.classList.contains('skip-loader');
 
-  if (loader) {
+  if (loader && !skipLoader) {
     document.documentElement.classList.add('loading');
+    try {
+      window.sessionStorage.setItem('abhiman-intro-seen', 'true');
+    } catch (error) {
+      // The animation still works when browser storage is unavailable.
+    }
 
     window.setTimeout(function () {
       loader.classList.add('is-fading');
@@ -12,17 +18,7 @@
         loader.classList.add('hidden');
       }, 450);
     }, 3200);
+  } else if (loader) {
+    loader.classList.add('hidden');
   }
-
-  var emailButton = document.querySelector('[data-email-reveal]');
-  if (!emailButton) return;
-
-  emailButton.addEventListener('click', function () {
-    var address = window.atob('aGVsbG9AYWJoaW1hbmd1cHRhLmNvbQ==');
-    var link = document.createElement('a');
-    link.href = 'mailto:' + address;
-    link.className = 'email-button';
-    link.textContent = address;
-    emailButton.replaceWith(link);
-  });
 })();
