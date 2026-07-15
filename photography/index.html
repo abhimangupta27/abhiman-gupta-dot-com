@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photography by Abhiman Gupta, organized by trips, everyday and street work, and portrait sessions." />
+  <meta name="theme-color" content="#f7f6f2" />
+  <title>Photography — Abhiman Gupta</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/">Home</a>
+      <a href="/photography/" aria-current="page">Photography</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="inner-main" id="main">
+    <div class="photo-archive">
+      <section class="polaroid-group" aria-labelledby="trips-heading">
+        <div class="archive-heading">
+          <h2 id="trips-heading">Trips</h2>
+        </div>
+        <div class="polaroid-cascade" data-collection-group="trips"></div>
+      </section>
+
+      <section class="polaroid-group" aria-labelledby="portraits-heading">
+        <div class="archive-heading">
+          <h2 id="portraits-heading">Portraits</h2>
+        </div>
+        <div class="polaroid-cascade" data-collection-group="portraits"></div>
+      </section>
+
+      <section class="polaroid-group" aria-labelledby="everyday-heading">
+        <div class="archive-heading">
+          <h2 id="everyday-heading">Every Day</h2>
+        </div>
+        <div class="polaroid-cascade" data-collection-group="everyday"></div>
+      </section>
+      <p class="archive-note" data-photography-status></p>
+    </div>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>© 2026 Abhiman Gupta</p>
+    <div><a href="/">Home</a><a href="/#contact">Contact</a></div>
+  </footer>
+  <script src="/script.js"></script>
+  <script src="/photography/photography.js"></script>
+</body>
+</html>

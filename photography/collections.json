@@ -1,0 +1,64 @@
+{
+  "collections": [
+    {
+      "slug": "maryland-2026",
+      "title": "Maryland",
+      "category": "trips",
+      "location": "Maryland, USA",
+      "year": "2026",
+      "order": 1,
+      "description": "A trip through Maryland in 2026.",
+      "cover": null,
+      "coverAlt": "Cover photograph for the Maryland collection",
+      "photos": []
+    },
+    {
+      "slug": "bandhavgarh",
+      "title": "Bandhavgarh",
+      "category": "trips",
+      "location": "Bandhavgarh National Park, India",
+      "year": "",
+      "order": 2,
+      "description": "Photographs from Bandhavgarh National Park.",
+      "cover": null,
+      "coverAlt": "Cover photograph for the Bandhavgarh collection",
+      "photos": []
+    },
+    {
+      "slug": "everyday",
+      "title": "Everyday",
+      "category": "everyday",
+      "location": "Ongoing",
+      "year": "",
+      "order": 1,
+      "description": "Ordinary places, familiar light, and things worth remembering.",
+      "cover": null,
+      "coverAlt": "Cover photograph for the Everyday collection",
+      "photos": []
+    },
+    {
+      "slug": "street",
+      "title": "Street",
+      "category": "everyday",
+      "location": "Ongoing",
+      "year": "",
+      "order": 2,
+      "description": "Unplanned frames from streets and public life.",
+      "cover": null,
+      "coverAlt": "Cover photograph for the Street collection",
+      "photos": []
+    },
+    {
+      "slug": "portrait-study",
+      "title": "Portrait Study",
+      "category": "portraits",
+      "location": "Personal work",
+      "year": "",
+      "order": 1,
+      "description": "A portrait study in available light.",
+      "cover": null,
+      "coverAlt": "Portrait of a person holding a sparkler",
+      "photos": []
+    }
+  ]
+}

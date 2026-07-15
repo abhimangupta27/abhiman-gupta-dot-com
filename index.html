@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Abhiman Gupta is a PhD student in Optical Sciences with interests across biomedical engineering, health, photography, writing, and independent projects." />
-  <meta name="theme-color" content="#f3f0e8" />
+  <meta name="description" content="The personal website of Abhiman Gupta: photography, projects, and other work." />
+  <meta name="theme-color" content="#f7f6f2" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Abhiman Gupta" />
-  <meta property="og:description" content="Research, photography, writing, and other work." />
+  <meta property="og:description" content="Photography, projects, and other work." />
   <meta property="og:url" content="https://abhimangupta.com/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Abhiman Gupta" />
-  <meta name="twitter:description" content="Research, photography, writing, and other work." />
   <title>Abhiman Gupta</title>
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
   <div id="loader">
-    <canvas id="loader-canvas"></canvas>
     <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
       <!-- Convex lens -->
       <path class="lens" d="M 100,12 Q 114,50 100,88" />
@@ -33,133 +30,42 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="wordmark" href="/" aria-label="Abhiman Gupta, home">
-      <span class="wordmark-mark" aria-hidden="true">AG</span>
-      <span>Abhiman Gupta</span>
-    </a>
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="/notes/">Writing</a>
-      <a href="/academia/">Research</a>
-      <a href="#photography">Photography</a>
-      <a href="#about">About</a>
+      <a href="/" aria-current="page">Home</a>
+      <a href="/photography/">Photography</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">Hello, I’m Abhiman.</p>
-        <h1 id="hero-title">A place for<br /><em>the work I care about.</em></h1>
-      </div>
-      <div class="hero-aside">
-        <p>I’m Abhiman. Right now, I’m pursuing a PhD in optical sciences. Beyond that, I make photographs, write from experience, and build ideas wherever science, health, and human possibility meet.</p>
-        <div class="text-links">
-          <a class="arrow-link" href="/academia/">See what I’m working on</a>
-          <a class="arrow-link" href="/notes/">Read the field notes</a>
+    <section class="hero wrap" aria-label="Introduction">
+      <div class="hero-layout">
+        <div class="hero-photo">
+          <h1 class="sr-only">Abhiman Gupta</h1>
+          <div class="hero-photo-placeholder" role="img" aria-label="Portrait of Abhiman Gupta to be added">
+            <span>Portrait to be added</span>
+          </div>
         </div>
-      </div>
-      <a class="scroll-cue" href="#now"><span>Scroll to explore</span><span aria-hidden="true">↓</span></a>
-    </section>
-
-    <section class="now-strip" id="now" aria-label="Current work">
-      <div class="wrap now-grid">
-        <p class="section-kicker">Now</p>
-        <p>Entering year three of a PhD in Optical Sciences</p>
-        <p>Studying the living eye through light</p>
-        <p>Making essays, photographs &amp; experiments</p>
-      </div>
-    </section>
-
-    <section class="feature section wrap" aria-labelledby="writing-heading">
-      <div class="section-heading">
-        <p class="section-kicker">01 · Writing</p>
-        <h2 id="writing-heading">Field notes from the less linear path.</h2>
-      </div>
-      <article class="feature-card">
-        <div class="feature-meta">
-          <p class="mono-label">Life experience · In progress</p>
-          <span aria-hidden="true">↗</span>
-        </div>
-        <div class="feature-content">
-          <h3>The cold email that changed my senior year</h3>
-          <p>A true story about curiosity, persistence, and the unlikely message that led to an internship.</p>
-          <a class="arrow-link" href="/notes/">Visit the notebook</a>
-        </div>
-      </article>
-    </section>
-
-    <section class="research section section-dark" aria-labelledby="research-heading">
-      <div class="wrap research-grid">
-        <div class="section-heading">
-          <p class="section-kicker">02 · Research</p>
-          <h2 id="research-heading">Using light to understand the living eye.</h2>
-        </div>
-        <div class="research-copy">
-          <p class="lead">Right now, light is teaching me how to see the living eye differently.</p>
-          <p>One current thread sits at the intersection of optical engineering, ophthalmology, and computer graphics. I develop polarimetric eye models to study how tissue changes in conditions including keratoconus, cataracts, and retinal degeneration.</p>
-          <dl class="research-details">
-            <div><dt>Foundation</dt><dd>Biomedical Engineering</dd></div>
-            <div><dt>Current field</dt><dd>Optical Sciences</dd></div>
-            <div><dt>Focus</dt><dd>Imaging · Polarization · Eye disease</dd></div>
-          </dl>
-          <a class="button-link button-light" href="/academia/">Research & publications <span aria-hidden="true">↗</span></a>
+        <div class="hero-intro">
+          <p>I’m Abhiman. I’m currently pursuing a PhD in Optical Sciences at the University of Arizona. My work is at the intersection of real-time computer rendering and its application to ophthalmology.</p>
+          <p>Outside of school, I’m interested in human health, nutrition, lifestyle design, and financial markets, to name a few things. I have been doing photography for over a decade, and I have also recently ventured into portrait photography.</p>
         </div>
       </div>
     </section>
 
-    <section class="photography section wrap" id="photography" aria-labelledby="photography-heading">
-      <div class="photo-composition">
-        <figure class="photo-frame">
-          <img src="/images/headshot.jpg" alt="Portrait photograph of a person holding a glowing sparkler" />
-        </figure>
-        <p class="photo-index" aria-hidden="true">01 / 10 years</p>
-      </div>
-      <div class="photo-copy">
-        <p class="section-kicker">03 · Photography</p>
-        <h2 id="photography-heading">Another way of paying attention.</h2>
-        <p>I’ve been making photographs for a decade, with a particular love for portraits. The practice taught me patience long before research did—and four local awards were a welcome footnote.</p>
-        <a class="arrow-link" href="https://www.instagram.com/p/Bhdi9vYAuM_/" target="_blank" rel="noopener noreferrer">See the award-winning frame</a>
-      </div>
-    </section>
-
-    <section class="interests section" aria-labelledby="interests-heading">
-      <div class="wrap">
-        <div class="section-heading interests-heading">
-          <p class="section-kicker">04 · Ideas worth keeping</p>
-          <h2 id="interests-heading">Things I keep coming back to.</h2>
-          <p>Books, essays, and ideas across biology, nutrition, biochemistry, optics, and the craft of living well. An annotated reading list is taking shape.</p>
-        </div>
-        <div class="interest-list" aria-label="Topics of interest">
-          <span>Biology</span><span>Nutrition</span><span>Biochemistry</span><span>Optics</span><span>Medicine</span><span>Creative practice</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="about section wrap" id="about" aria-labelledby="about-heading">
-      <div class="about-portrait">
-        <img src="/images/B23D124D-7D8A-4897-A070-59D43B701F39_1_201_a.jpeg" alt="Abhiman Gupta smiling outdoors" />
-      </div>
-      <div class="about-copy">
-        <p class="section-kicker">05 · About</p>
-        <h2 id="about-heading">No single lane.<br />Just a direction of travel.</h2>
-        <p>Biomedical engineering brought me close to human health. Optics gave me a new language for that curiosity. I’m most alive when I’m learning quickly, connecting unlikely ideas, and turning curiosity into something real.</p>
-        <p>This site is a record of that motion: research I’m proud of, stories I don’t want to forget, and projects and possibilities still taking shape.</p>
-        <button class="email-button" type="button" data-email-reveal>Reveal my email</button>
-      </div>
+    <section class="contact-section wrap" id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title">Get in touch.</h2>
+      <p>For photography, projects, or anything else worth discussing.</p>
+      <button class="email-button" type="button" data-email-reveal>Reveal my email</button>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div>
-        <p class="footer-invite">Something worth making?</p>
-        <p>Let’s talk.</p>
-      </div>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/abhimangupta27/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://scholar.google.com/citations?user=Y-umYyEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
-      </div>
-      <p class="footer-meta">© 2026 Abhiman Gupta<br />Made with curiosity in Tucson.</p>
+  <footer class="site-footer wrap">
+    <p>© 2026 Abhiman Gupta</p>
+    <div>
+      <a href="https://www.linkedin.com/in/abhimangupta27/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="https://scholar.google.com/citations?user=Y-umYyEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
     </div>
   </footer>
 
