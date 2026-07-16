@@ -26,7 +26,10 @@
     var imageArea = document.createElement('div');
     imageArea.className = 'polaroid-image';
 
-    if (collection.cover) {
+    if (!collection.photos.length) {
+      imageArea.classList.add('is-empty');
+      imageArea.appendChild(text('span', '', 'Coming soon'));
+    } else if (collection.cover) {
       var image = document.createElement('img');
       image.src = collection.cover;
       image.alt = collection.coverAlt || '';
@@ -34,7 +37,7 @@
       imageArea.appendChild(image);
     } else {
       imageArea.classList.add('is-empty');
-      imageArea.appendChild(text('span', '', 'Add cover.jpg'));
+      imageArea.appendChild(text('span', '', 'Coming soon'));
     }
 
     var caption = document.createElement('figcaption');

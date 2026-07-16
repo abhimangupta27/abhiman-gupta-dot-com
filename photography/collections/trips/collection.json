@@ -1,0 +1,12 @@
+{
+  "slug": "trips",
+  "title": "Trips",
+  "category": "trips",
+  "location": "",
+  "year": "",
+  "order": 1,
+  "description": "Photographs from travels and time away.",
+  "cover": "cover.jpg",
+  "coverAlt": "Cover photograph for Trips",
+  "captions": {}
+}

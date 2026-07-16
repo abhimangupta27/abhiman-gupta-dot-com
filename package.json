@@ -6,7 +6,7 @@
   "scripts": {
     "photos": "python3 scripts/build_photography.py",
     "check": "node --check script.js && node --check photography/photography.js",
-    "build": "npm run photos && npm run check && node scripts/build_site.mjs"
+    "build": "npm run photos && npm run check && node scripts/build_site.mjs",
+    "build:pages": "npm run photos && npm run check && node scripts/build_pages.mjs"
   }
 }
-

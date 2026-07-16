@@ -1,5 +1,33 @@
 # Photography workflow
 
+## The short version
+
+The site has two photography collections: **Trips** and **Portraits**. Add
+photographs directly to the appropriate folder; do not make a subfolder for a
+particular trip, place, or person.
+
+```text
+photography/collections/trips/
+photography/collections/portraits/
+```
+
+Add the photographs to that folder in the order you want them displayed:
+
+```text
+cover.jpg
+picture 1.jpg
+picture 2.jpg
+picture 3.jpg
+```
+
+The next local build or website publish automatically finds the photographs
+and puts them in that filename order. You do not need to add each photograph to
+the website by hand. Numbered names are sorted naturally, so `picture 10.jpg`
+comes after `picture 9.jpg`, not after `picture 1.jpg`.
+
+Each of those two folders already contains its `collection.json`; normally you
+only need to add or remove photographs.
+
 The website treats each shoot or trip as a collection folder. GitHub Actions
 rebuilds `photography/collections.json` whenever `main` is updated, so the HTML
 does not need to be edited when photographs are added.
@@ -13,8 +41,8 @@ does not need to be edited when photographs are added.
   vertical, square, 4:5, 3:4, 5:7, or another proportion.
 - Make a separate `cover.jpg` cropped to 5:7. The Polaroid cover is the only
   image the website deliberately crops.
-- Name gallery files in viewing order: `001.jpg`, `002.jpg`, `003.jpg`, and so
-  on.
+- Name gallery files in viewing order. Either `001.jpg`, `002.jpg`, `003.jpg`
+  or `picture 1.jpg`, `picture 2.jpg`, `picture 3.jpg` works.
 
 ## Folder structure
 
@@ -22,30 +50,19 @@ does not need to be edited when photographs are added.
 photography/
   collections/
     trips/
-      maryland-2026/
-        collection.json
-        cover.jpg
-        001.jpg
-        002.jpg
-      bandhavgarh/
-        collection.json
-        cover.jpg
-        001.jpg
-    everyday/
-      street/
-        collection.json
-        cover.jpg
-        001.jpg
+      collection.json
+      cover.jpg
+      picture 1.jpg
+      picture 2.jpg
     portraits/
-      jane-doe-graduation/
-        collection.json
-        cover.jpg
-        001.jpg
+      collection.json
+      cover.jpg
+      picture 1.jpg
+      picture 2.jpg
 ```
 
-For a new collection, duplicate an existing folder, rename it, and edit its
-`collection.json`. Use a lowercase hyphenated slug such as
-`jane-doe-graduation`.
+Do not add another folder inside `trips` or `portraits`. The collection scanner
+reads the image files placed directly in those folders.
 
 Optional captions and alt text go in the `captions` object:
 
@@ -68,6 +85,9 @@ make serve
 Then visit <http://localhost:8000>. The browser uses each gallery image's
 natural dimensions, so portrait and landscape exports retain their proportions
 and flow into the exhibition layout without being cropped.
+
+`make photos` is the fetch step: it rescans all collection folders and updates
+the photography manifest used by the site.
 
 ## Publish
 

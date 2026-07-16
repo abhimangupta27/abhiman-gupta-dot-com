@@ -1,63 +1,27 @@
 {
   "collections": [
     {
-      "slug": "maryland-2026",
-      "title": "Maryland",
+      "slug": "trips",
+      "title": "Trips",
       "category": "trips",
-      "location": "Maryland, USA",
-      "year": "2026",
-      "order": 1,
-      "description": "A trip through Maryland in 2026.",
-      "cover": null,
-      "coverAlt": "Cover photograph for the Maryland collection",
-      "photos": []
-    },
-    {
-      "slug": "bandhavgarh",
-      "title": "Bandhavgarh",
-      "category": "trips",
-      "location": "Bandhavgarh National Park, India",
-      "year": "",
-      "order": 2,
-      "description": "Photographs from Bandhavgarh National Park.",
-      "cover": null,
-      "coverAlt": "Cover photograph for the Bandhavgarh collection",
-      "photos": []
-    },
-    {
-      "slug": "everyday",
-      "title": "Everyday",
-      "category": "everyday",
-      "location": "Ongoing",
+      "location": "",
       "year": "",
       "order": 1,
-      "description": "Ordinary places, familiar light, and things worth remembering.",
+      "description": "Photographs from travels and time away.",
       "cover": null,
-      "coverAlt": "Cover photograph for the Everyday collection",
+      "coverAlt": "Cover photograph for Trips",
       "photos": []
     },
     {
-      "slug": "street",
-      "title": "Street",
-      "category": "everyday",
-      "location": "Ongoing",
-      "year": "",
-      "order": 2,
-      "description": "Unplanned frames from streets and public life.",
-      "cover": null,
-      "coverAlt": "Cover photograph for the Street collection",
-      "photos": []
-    },
-    {
-      "slug": "portrait-study",
-      "title": "Portrait Study",
+      "slug": "portraits",
+      "title": "Portraits",
       "category": "portraits",
-      "location": "Personal work",
+      "location": "",
       "year": "",
       "order": 1,
-      "description": "A portrait study in available light.",
+      "description": "Portraits in natural and available light.",
       "cover": null,
-      "coverAlt": "Portrait of a person holding a sparkler",
+      "coverAlt": "Cover photograph for Portraits",
       "photos": []
     }
   ]
