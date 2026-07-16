@@ -292,8 +292,8 @@ html.skip-loader #loader { display: none; }
 .polaroid-deck.deck-2 { transform: translateY(4rem) rotate(2.5deg); }
 .polaroid-deck.deck-3 { transform: translateY(1.25rem) rotate(-1.5deg); }
 .polaroid-deck.deck-4 { transform: translateY(5rem) rotate(3deg); }
-.photo-columns .polaroid-deck:nth-child(odd) { transform: translateX(-7%) rotate(-3deg); }
-.photo-columns .polaroid-deck:nth-child(even) { transform: translateX(7%) rotate(2.5deg); }
+.photo-columns .polaroid-deck:nth-child(odd) { transform: rotate(-3deg); }
+.photo-columns .polaroid-deck:nth-child(even) { transform: rotate(2.5deg); }
 .polaroid-deck:hover, .polaroid-deck:focus-visible { transform: translateY(-0.5rem) rotate(0); z-index: 5; }
 .photo-columns .polaroid-deck:hover, .photo-columns .polaroid-deck:focus-visible { transform: translateY(-0.5rem) rotate(0); }
 .polaroid-back {
@@ -355,7 +355,7 @@ html.skip-loader #loader { display: none; }
   :root { --wrap: min(760px, calc(100vw - 40px)); }
   .hero { min-height: auto; }
   .hero-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .hero-photo { width: min(70vw, 500px); }
+  .hero-photo { width: min(70vw, 500px); margin-inline: auto; }
   .hero-intro { display: block; max-width: 600px; }
   .polaroid-cascade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -384,6 +384,8 @@ html.skip-loader #loader { display: none; }
   .photo-columns .polaroid-cascade { gap: 5rem; padding-inline: 1rem; }
   .polaroid-cascade { grid-template-columns: 1fr; gap: 5rem; padding-inline: 1rem; }
   .polaroid-deck { width: min(76vw, 290px); }
+  .photo-columns .polaroid-deck:nth-child(odd) { transform: rotate(-2deg); }
+  .photo-columns .polaroid-deck:nth-child(even) { transform: rotate(2deg); }
   .polaroid-deck.deck-2, .polaroid-deck.deck-4 { transform: translateX(5vw) rotate(2.5deg); }
   .polaroid-deck.deck-3 { transform: translateX(-4vw) rotate(-2deg); }
   .contact-links a { align-items: flex-start; flex-direction: column; gap: 0.15rem; }
